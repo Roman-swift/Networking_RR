@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Posts-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Networking" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="p0g-mF-qgG">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="p0g-mF-qgG">
                                 <rect key="frame" x="0.0" y="27" width="414" height="896"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
@@ -32,7 +32,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="UCD-5P-xri">
+                    <navigationItem key="navigationItem" title="Posts" id="UCD-5P-xri">
                         <barButtonItem key="rightBarButtonItem" title="Download Users" id="ojX-Pq-YbD">
                             <connections>
                                 <segue destination="1EO-Uz-gtq" kind="presentation" id="Dya-wy-NZP"/>
@@ -55,7 +55,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gOM-EF-Kj0">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gOM-EF-Kj0">
                                 <rect key="frame" x="0.0" y="100" width="414" height="823"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
@@ -63,16 +63,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Users" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9qa-NQ-lqc">
-                                        <rect key="frame" x="171.5" y="60" width="71" height="30"/>
+                                        <rect key="frame" x="171.5" y="58.5" width="71" height="31.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VUH-gY-xbV">
-                                        <rect key="frame" x="10" y="50" width="100" height="50"/>
+                                        <rect key="frame" x="10" y="49.5" width="100" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="9l9-hP-Tga"/>
-                                            <constraint firstAttribute="width" constant="100" id="B2T-DK-WOX"/>
-                                            <constraint firstAttribute="height" constant="50" id="REA-jI-fdV"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="vpH-wF-BuT"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
@@ -89,7 +87,7 @@
                                     <constraint firstItem="9qa-NQ-lqc" firstAttribute="leading" secondItem="bTZ-bG-WOb" secondAttribute="leading" constant="171.5" id="gek-DF-7Xj"/>
                                     <constraint firstAttribute="bottom" secondItem="9qa-NQ-lqc" secondAttribute="bottom" constant="10" id="jEK-8K-KPC"/>
                                     <constraint firstAttribute="trailing" secondItem="9qa-NQ-lqc" secondAttribute="trailing" constant="171.5" id="lnY-4i-wVs"/>
-                                    <constraint firstItem="9qa-NQ-lqc" firstAttribute="top" secondItem="bTZ-bG-WOb" secondAttribute="top" constant="60" id="lre-YL-mRX"/>
+                                    <constraint firstItem="9qa-NQ-lqc" firstAttribute="top" relation="lessThanOrEqual" secondItem="bTZ-bG-WOb" secondAttribute="top" constant="60" id="lre-YL-mRX"/>
                                     <constraint firstItem="VUH-gY-xbV" firstAttribute="leading" secondItem="bTZ-bG-WOb" secondAttribute="leading" constant="10" id="shF-nk-cE9"/>
                                 </constraints>
                             </view>
