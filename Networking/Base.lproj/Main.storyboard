@@ -33,9 +33,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="UCD-5P-xri">
-                        <barButtonItem key="rightBarButtonItem" title="Create Post" id="ojX-Pq-YbD">
+                        <barButtonItem key="rightBarButtonItem" title="Download Users" id="ojX-Pq-YbD">
                             <connections>
-                                <action selector="createPost:" destination="BYZ-38-t0r" id="jsq-IR-yjS"/>
+                                <segue destination="1EO-Uz-gtq" kind="presentation" id="Dya-wy-NZP"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -46,6 +46,74 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="129.91071428571428"/>
+        </scene>
+        <!--Users View Controller-->
+        <scene sceneID="HOg-3e-T3w">
+            <objects>
+                <viewController id="1EO-Uz-gtq" customClass="UsersViewController" customModule="Networking" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ft4-Qe-Jh8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gOM-EF-Kj0">
+                                <rect key="frame" x="0.0" y="100" width="414" height="823"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bTZ-bG-WOb">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Users" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9qa-NQ-lqc">
+                                        <rect key="frame" x="171.5" y="60" width="71" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VUH-gY-xbV">
+                                        <rect key="frame" x="10" y="50" width="100" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="9l9-hP-Tga"/>
+                                            <constraint firstAttribute="width" constant="100" id="B2T-DK-WOX"/>
+                                            <constraint firstAttribute="height" constant="50" id="REA-jI-fdV"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="vpH-wF-BuT"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <state key="normal" title="Back"/>
+                                        <connections>
+                                            <action selector="didTapBackButton:" destination="1EO-Uz-gtq" eventType="touchUpInside" id="3K0-OU-NYa"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="VUH-gY-xbV" firstAttribute="centerY" secondItem="9qa-NQ-lqc" secondAttribute="centerY" id="czc-eL-j0b"/>
+                                    <constraint firstAttribute="height" constant="100" id="gVB-c0-kVS"/>
+                                    <constraint firstItem="9qa-NQ-lqc" firstAttribute="leading" secondItem="bTZ-bG-WOb" secondAttribute="leading" constant="171.5" id="gek-DF-7Xj"/>
+                                    <constraint firstAttribute="bottom" secondItem="9qa-NQ-lqc" secondAttribute="bottom" constant="10" id="jEK-8K-KPC"/>
+                                    <constraint firstAttribute="trailing" secondItem="9qa-NQ-lqc" secondAttribute="trailing" constant="171.5" id="lnY-4i-wVs"/>
+                                    <constraint firstItem="9qa-NQ-lqc" firstAttribute="top" secondItem="bTZ-bG-WOb" secondAttribute="top" constant="60" id="lre-YL-mRX"/>
+                                    <constraint firstItem="VUH-gY-xbV" firstAttribute="leading" secondItem="bTZ-bG-WOb" secondAttribute="leading" constant="10" id="shF-nk-cE9"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gOM-EF-Kj0" firstAttribute="top" secondItem="bTZ-bG-WOb" secondAttribute="bottom" id="U6j-1Y-xSn"/>
+                            <constraint firstItem="bTZ-bG-WOb" firstAttribute="leading" secondItem="gOM-EF-Kj0" secondAttribute="leading" id="UfZ-AW-OJ2"/>
+                            <constraint firstItem="gOM-EF-Kj0" firstAttribute="centerX" secondItem="27v-WP-dAp" secondAttribute="centerX" id="gLO-ju-a1g"/>
+                            <constraint firstItem="bTZ-bG-WOb" firstAttribute="trailing" secondItem="gOM-EF-Kj0" secondAttribute="trailing" id="gLV-9J-Xwe"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="gOM-EF-Kj0" secondAttribute="bottom" constant="-61" id="ghj-5a-RzD"/>
+                            <constraint firstItem="gOM-EF-Kj0" firstAttribute="width" secondItem="Ft4-Qe-Jh8" secondAttribute="width" id="o4W-ch-XmS"/>
+                            <constraint firstItem="bTZ-bG-WOb" firstAttribute="top" secondItem="Ft4-Qe-Jh8" secondAttribute="top" id="prq-Cz-aO0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="27v-WP-dAp"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="usersTableView" destination="gOM-EF-Kj0" id="Fdz-l3-85c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Ik-Yg-8z7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1940.5797101449277" y="129.91071428571428"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="db1-Kg-GVq">

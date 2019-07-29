@@ -91,4 +91,22 @@ class NetworkManager {
 			}
 		}.resume()
 	}
+
+func getAllUsers(_ complitionHandler: @escaping ([User]) -> Void) {
+    if let url = URL(string: baseURL + "users") {
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            
+            if error != nil {
+                print("error in request")
+            } else {
+                if let resp = response as? HTTPURLResponse,
+                    resp.statusCode == 200,
+                    let responseData = data {
+                    let users = try? JSONDecoder().decode([User].self, from: responseData)
+                    complitionHandler(users ?? [])
+                    }
+                }
+            }.resume()
+        }
+    }
 }
