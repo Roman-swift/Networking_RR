@@ -47,6 +47,36 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="129.91071428571428"/>
         </scene>
+        <!--Comments View Controller-->
+        <scene sceneID="fnD-5Y-Rvc">
+            <objects>
+                <viewController storyboardIdentifier="CommentsVCID" id="SbW-xw-10p" customClass="CommentsViewController" customModule="Networking" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xoj-Oa-Q7F">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F25-Gg-8Yc">
+                                <rect key="frame" x="0.0" y="5" width="414" height="896"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="F25-Gg-8Yc" firstAttribute="height" secondItem="Xoj-Oa-Q7F" secondAttribute="height" id="9s0-0z-CJE"/>
+                            <constraint firstItem="F25-Gg-8Yc" firstAttribute="width" secondItem="Xoj-Oa-Q7F" secondAttribute="width" id="HfL-Cc-7Y4"/>
+                            <constraint firstItem="F25-Gg-8Yc" firstAttribute="centerX" secondItem="cIa-Mn-njT" secondAttribute="centerX" id="Ok7-JP-iCX"/>
+                            <constraint firstItem="F25-Gg-8Yc" firstAttribute="centerY" secondItem="cIa-Mn-njT" secondAttribute="centerY" id="vgq-vT-vMh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cIa-Mn-njT"/>
+                    </view>
+                    <connections>
+                        <outlet property="commentsTableView" destination="F25-Gg-8Yc" id="Dv1-Sx-uoA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CF6-aM-nog" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1048" y="818"/>
+        </scene>
         <!--Users View Controller-->
         <scene sceneID="HOg-3e-T3w">
             <objects>

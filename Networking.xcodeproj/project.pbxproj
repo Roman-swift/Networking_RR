@@ -20,6 +20,10 @@
 		1C64ACD522EEFB6800052DEF /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C64ACD322EEFB6800052DEF /* UsersTableViewCell.swift */; };
 		1C64ACD622EEFB6800052DEF /* UsersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C64ACD422EEFB6800052DEF /* UsersTableViewCell.xib */; };
 		1C64ACD822EEFCF400052DEF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C64ACD722EEFCF400052DEF /* User.swift */; };
+		1C64ACDA22EF306500052DEF /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C64ACD922EF306500052DEF /* Comment.swift */; };
+		1C64ACDC22EF30CB00052DEF /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C64ACDB22EF30CB00052DEF /* CommentsViewController.swift */; };
+		1C64ACE122EF353200052DEF /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C64ACDF22EF353200052DEF /* CommentsTableViewCell.swift */; };
+		1C64ACE222EF353200052DEF /* CommentsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C64ACE022EF353200052DEF /* CommentsTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,10 @@
 		1C64ACD322EEFB6800052DEF /* UsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
 		1C64ACD422EEFB6800052DEF /* UsersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersTableViewCell.xib; sourceTree = "<group>"; };
 		1C64ACD722EEFCF400052DEF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1C64ACD922EF306500052DEF /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		1C64ACDB22EF30CB00052DEF /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
+		1C64ACDF22EF353200052DEF /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
+		1C64ACE022EF353200052DEF /* CommentsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentsTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +66,8 @@
 				174D7FE422E9EFB6006046A0 /* PostTableViewCell.xib */,
 				1C64ACD322EEFB6800052DEF /* UsersTableViewCell.swift */,
 				1C64ACD422EEFB6800052DEF /* UsersTableViewCell.xib */,
+				1C64ACDF22EF353200052DEF /* CommentsTableViewCell.swift */,
+				1C64ACE022EF353200052DEF /* CommentsTableViewCell.xib */,
 			);
 			path = VIEW;
 			sourceTree = "<group>";
@@ -99,6 +109,7 @@
 			children = (
 				17DC80C522E6219600E5A73A /* ViewController.swift */,
 				1C64ACD122EEF53100052DEF /* UsersViewController.swift */,
+				1C64ACDB22EF30CB00052DEF /* CommentsViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -107,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				17DC80D522E627E900E5A73A /* Post.swift */,
+				1C64ACD922EF306500052DEF /* Comment.swift */,
 				1C64ACD722EEFCF400052DEF /* User.swift */,
 			);
 			path = MODELS;
@@ -175,6 +187,7 @@
 				17DC80C922E6219600E5A73A /* Main.storyboard in Resources */,
 				1C64ACD622EEFB6800052DEF /* UsersTableViewCell.xib in Resources */,
 				174D7FE622E9EFB6006046A0 /* PostTableViewCell.xib in Resources */,
+				1C64ACE222EF353200052DEF /* CommentsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,7 +205,10 @@
 				1C64ACD822EEFCF400052DEF /* User.swift in Sources */,
 				174D7FE522E9EFB6006046A0 /* PostTableViewCell.swift in Sources */,
 				17DC80C622E6219600E5A73A /* ViewController.swift in Sources */,
+				1C64ACDA22EF306500052DEF /* Comment.swift in Sources */,
+				1C64ACDC22EF30CB00052DEF /* CommentsViewController.swift in Sources */,
 				17DC80C422E6219600E5A73A /* AppDelegate.swift in Sources */,
+				1C64ACE122EF353200052DEF /* CommentsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
