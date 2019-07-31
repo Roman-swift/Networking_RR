@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="p0g-mF-qgG">
-                                <rect key="frame" x="0.0" y="27" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="5" width="414" height="896"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -33,11 +33,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Posts" id="UCD-5P-xri">
-                        <barButtonItem key="rightBarButtonItem" title="Download Users" id="ojX-Pq-YbD">
-                            <connections>
-                                <segue destination="1EO-Uz-gtq" kind="presentation" id="Dya-wy-NZP"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Download Users" id="ojX-Pq-YbD"/>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="p0g-mF-qgG" id="NfM-Nt-8rv"/>
@@ -45,7 +41,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="129.91071428571428"/>
+            <point key="canvasLocation" x="1964" y="818"/>
         </scene>
         <!--Comments View Controller-->
         <scene sceneID="fnD-5Y-Rvc">
@@ -134,6 +130,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="27v-WP-dAp"/>
                     </view>
+                    <navigationItem key="navigationItem" id="8gf-Br-fmV"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="usersTableView" destination="gOM-EF-Kj0" id="Fdz-l3-85c"/>
@@ -154,7 +151,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="fnq-Fo-a9x"/>
+                        <segue destination="1EO-Uz-gtq" kind="relationship" relationship="rootViewController" id="nkg-TX-8sy"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sel-1U-nTB" userLabel="First Responder" sceneMemberID="firstResponder"/>

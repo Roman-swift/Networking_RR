@@ -20,10 +20,13 @@ class UsersTableViewCell: UITableViewCell {
     @IBOutlet weak var companyNameLabel: UILabel!
     @IBOutlet weak var catchPhraseLabel: UILabel!
     @IBOutlet weak var bsLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
         private var user: User?
         
         func configure(_ user: User) {
+            activityIndicator.startAnimating()
+            DispatchQueue.main.async {
             self.user = user
             self.nameLabel.text = user.name
             self.usernameLabel.text = user.username
@@ -36,7 +39,8 @@ class UsersTableViewCell: UITableViewCell {
             self.companyNameLabel.text = user.company.name
             self.catchPhraseLabel.text = user.company.catchPhrase
             self.bsLabel.text = user.company.bs
-            
+            self.activityIndicator.stopAnimating()
+            }
         }
     }
 

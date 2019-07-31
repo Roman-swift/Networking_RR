@@ -16,18 +16,22 @@ class UsersViewController: UIViewController {
             usersTableView.delegate = self
             let nib = UINib(nibName: "UsersTableViewCell", bundle: nil)
             usersTableView.register(nib, forCellReuseIdentifier: "UsersCellID")
+
         }
     }
     
     private var users: [User] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         NetworkManager().getAllUsers() { users in
+            
             self.users = users
+            
             DispatchQueue.main.async {
                 self.usersTableView.reloadData()
+
             }
         }
     }
@@ -47,6 +51,5 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configure(users[indexPath.row])
         
         return cell
-        
     }
 }
