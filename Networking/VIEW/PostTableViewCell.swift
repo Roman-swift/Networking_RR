@@ -12,10 +12,19 @@ class PostTableViewCell: UITableViewCell {
 
 	@IBOutlet weak var postTitleLabel: UILabel!
 	@IBOutlet weak var postBodyLable: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
+    private var post: Post?
+
 
 	func configure(_ post: Post) {
-		postTitleLabel.text = post.title
-		postBodyLable.text = post.body
+        activityIndicator.startAnimating()
+        DispatchQueue.main.async {
+            self.post = post
+            self.postTitleLabel.text = post.title
+            self.postBodyLable.text = post.body
+            self.activityIndicator.stopAnimating()
+        }
 	}
     
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PostsViewController: UIViewController {
 
 	@IBOutlet weak var tableView: UITableView! {
 		didSet {
@@ -20,23 +20,30 @@ class ViewController: UIViewController {
 		}
 	}
 
-	var posts: [Post] = [] {
-		didSet {
-			tableView.reloadData()
-		}
-	}
+    var posts: [Post] = []
 	var networkManager = NetworkManager()
+    var user: User?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		networkManager.getAllPosts { [weak self] (posts) in
-			DispatchQueue.main.async {
-				self?.posts = posts
-			}
-		}
-	}
-
+        
+        self.title = "Posts"
+        
+        if let myUser = user {
+            NetworkManager().getPostsForUser(myUser.id) { (posts) in
+                self.posts = posts
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+    }
+//        networkManager.getAllPosts { [weak self] (posts) in
+//            DispatchQueue.main.async {
+//                self?.posts = posts
+//            }
+//        }
 	
 	@IBAction func createPost(_ sender: Any) {
 
@@ -50,14 +57,16 @@ class ViewController: UIViewController {
 				self.present(alert, animated: true, completion: nil)
 
 				DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
-					alert.dismiss(animated: true, completion: nil)
-				})
+					alert.dismiss(animated: true, completion: nil)})
 			}
 		}
 	}
+    func configure(_ user: User) {
+        self.user = user
+    }
 }
 
-extension ViewController: UITableViewDataSource, UITableViewDelegate {
+extension PostsViewController: UITableViewDataSource, UITableViewDelegate {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return posts.count
 	}

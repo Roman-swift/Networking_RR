@@ -21,6 +21,7 @@ class UsersViewController: UIViewController {
     }
     
     private var users: [User] = []
+ 
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,5 +52,12 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configure(users[indexPath.row])
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PostsVCID") as! PostsViewController
+        vc.configure(users[indexPath.row])
+
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
