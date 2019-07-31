@@ -16,6 +16,7 @@
 		17DC80CE22E6219800E5A73A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17DC80CC22E6219800E5A73A /* LaunchScreen.storyboard */; };
 		17DC80D622E627E900E5A73A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DC80D522E627E900E5A73A /* Post.swift */; };
 		17DC80D822E6328D00E5A73A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DC80D722E6328D00E5A73A /* NetworkManager.swift */; };
+		1C21779D22F1CF9300E32FFE /* AddUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C21779C22F1CF9300E32FFE /* AddUserTableViewController.swift */; };
 		1C64ACD222EEF53100052DEF /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C64ACD122EEF53100052DEF /* UsersViewController.swift */; };
 		1C64ACD522EEFB6800052DEF /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C64ACD322EEFB6800052DEF /* UsersTableViewCell.swift */; };
 		1C64ACD622EEFB6800052DEF /* UsersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C64ACD422EEFB6800052DEF /* UsersTableViewCell.xib */; };
@@ -38,6 +39,7 @@
 		17DC80CF22E6219800E5A73A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17DC80D522E627E900E5A73A /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		17DC80D722E6328D00E5A73A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		1C21779C22F1CF9300E32FFE /* AddUserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserTableViewController.swift; sourceTree = "<group>"; };
 		1C64ACD122EEF53100052DEF /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		1C64ACD322EEFB6800052DEF /* UsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
 		1C64ACD422EEFB6800052DEF /* UsersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersTableViewCell.xib; sourceTree = "<group>"; };
@@ -62,10 +64,10 @@
 		174D7FE722E9EFBD006046A0 /* VIEW */ = {
 			isa = PBXGroup;
 			children = (
-				174D7FE322E9EFB6006046A0 /* PostTableViewCell.swift */,
-				174D7FE422E9EFB6006046A0 /* PostTableViewCell.xib */,
 				1C64ACD322EEFB6800052DEF /* UsersTableViewCell.swift */,
 				1C64ACD422EEFB6800052DEF /* UsersTableViewCell.xib */,
+				174D7FE322E9EFB6006046A0 /* PostTableViewCell.swift */,
+				174D7FE422E9EFB6006046A0 /* PostTableViewCell.xib */,
 				1C64ACDF22EF353200052DEF /* CommentsTableViewCell.swift */,
 				1C64ACE022EF353200052DEF /* CommentsTableViewCell.xib */,
 			);
@@ -107,9 +109,10 @@
 		1C64ACCF22EEF02400052DEF /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				17DC80C522E6219600E5A73A /* ViewController.swift */,
 				1C64ACD122EEF53100052DEF /* UsersViewController.swift */,
+				17DC80C522E6219600E5A73A /* ViewController.swift */,
 				1C64ACDB22EF30CB00052DEF /* CommentsViewController.swift */,
+				1C21779C22F1CF9300E32FFE /* AddUserTableViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -117,9 +120,9 @@
 		1C64ACD022EEF0DF00052DEF /* MODELS */ = {
 			isa = PBXGroup;
 			children = (
+				1C64ACD722EEFCF400052DEF /* User.swift */,
 				17DC80D522E627E900E5A73A /* Post.swift */,
 				1C64ACD922EF306500052DEF /* Comment.swift */,
-				1C64ACD722EEFCF400052DEF /* User.swift */,
 			);
 			path = MODELS;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				1C64ACD222EEF53100052DEF /* UsersViewController.swift in Sources */,
 				17DC80D622E627E900E5A73A /* Post.swift in Sources */,
 				1C64ACD522EEFB6800052DEF /* UsersTableViewCell.swift in Sources */,
+				1C21779D22F1CF9300E32FFE /* AddUserTableViewController.swift in Sources */,
 				1C64ACD822EEFCF400052DEF /* User.swift in Sources */,
 				174D7FE522E9EFB6006046A0 /* PostTableViewCell.swift in Sources */,
 				17DC80C622E6219600E5A73A /* ViewController.swift in Sources */,

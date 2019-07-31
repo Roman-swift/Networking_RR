@@ -16,12 +16,10 @@ class UsersViewController: UIViewController {
             usersTableView.delegate = self
             let nib = UINib(nibName: "UsersTableViewCell", bundle: nil)
             usersTableView.register(nib, forCellReuseIdentifier: "UsersCellID")
-
         }
     }
     
     private var users: [User] = []
- 
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +35,14 @@ class UsersViewController: UIViewController {
         }
     }
     
+    @IBAction func didTapAddUserButton(_ sender: UIBarButtonItem) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "AddUserVCID")
+        vc.modalPresentationStyle = .popover
+        vc.popoverPresentationController?.delegate = self
+        self.present(vc, animated: true)
+        vc.popoverPresentationController?.barButtonItem = sender
+    }
     @IBAction func didTapBackButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -60,4 +66,7 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
 
         self.navigationController?.pushViewController(vc, animated: true)
     }
+}
+
+extension UsersViewController: UIPopoverPresentationControllerDelegate {
 }

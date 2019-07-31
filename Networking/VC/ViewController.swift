@@ -26,9 +26,6 @@ class PostsViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
-        
-        self.title = "Posts"
         
         if let myUser = user {
             NetworkManager().getPostsForUser(myUser.id) { (posts) in
@@ -39,12 +36,7 @@ class PostsViewController: UIViewController {
             }
         }
     }
-//        networkManager.getAllPosts { [weak self] (posts) in
-//            DispatchQueue.main.async {
-//                self?.posts = posts
-//            }
-//        }
-	
+
 	@IBAction func createPost(_ sender: Any) {
 
 		let post = Post(userId: 1, title: "myTitle", body: "mybody")
@@ -61,6 +53,7 @@ class PostsViewController: UIViewController {
 			}
 		}
 	}
+    
     func configure(_ user: User) {
         self.user = user
     }
