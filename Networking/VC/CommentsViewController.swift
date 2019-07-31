@@ -20,6 +20,7 @@ class CommentsViewController: UIViewController {
     }
     
     private var post: Post?
+    var networkManager = NetworkManager()
     private var comments: [Comment] = []
     
     override func viewDidLoad() {
@@ -36,6 +37,15 @@ class CommentsViewController: UIViewController {
             }
         }
     }
+    
+    func removeComment (_ indexPath: IndexPath) {
+        DispatchQueue.main.async {
+            self.comments.remove(at: indexPath.row)
+            self.commentsTableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        
+    }
+    
         func configure(_ post: Post) {
             self.post = post
     }
@@ -51,5 +61,22 @@ extension CommentsViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configure(comment: comments[indexPath.row])
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let remove = UITableViewRowAction(style: .destructive, title: "Remove") { action, indexPath in
+            let currentComment = self.comments[indexPath.row]
+            
+            self.networkManager.removeComment(currentComment) { _ in
+                self.removeComment(indexPath)
+            }
+        }
+        
+        return [remove]
     }
 }

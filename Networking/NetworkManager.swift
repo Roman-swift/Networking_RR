@@ -40,8 +40,7 @@ class NetworkManager {
 						complitionHandler(posts ?? [])
 					}
 				}
-
-				}.resume()
+            }.resume()
 		}
 	}
 
@@ -86,7 +85,6 @@ class NetworkManager {
 				resp.statusCode == 200, let reciveData = data {
 
 				let posts = try? JSONDecoder().decode([Post].self, from: reciveData)
-
 				complitionHandler(posts ?? [])
 			}
 		}.resume()
@@ -130,6 +128,7 @@ class NetworkManager {
             }.resume()
         }
     }
+    
     func getPostsForUser(_ userId: Int, _ completionHandler: @escaping ([Post]) -> Void) {
         if let url = URL(string: "https://jsonplaceholder.typicode.com/posts?userId=\(String(userId))") {
             print(url)
@@ -147,7 +146,86 @@ class NetworkManager {
                         print((200..<300).contains((response as! HTTPURLResponse).statusCode))
                     }
                 }
-                }.resume()
+            }.resume()
         }
+    }
+    
+    func removeUser (_ user: User, complitionHandler: @escaping (Bool) -> Void) {
+        let sendData = try? JSONEncoder().encode(user)
+        guard let url = URL(string: baseURL + APIs.users.rawValue + "/\(user.id)"),
+            let data = sendData
+            else {
+                complitionHandler(false)
+                return
+        }
+        
+        
+        let request = MutableURLRequest(url: url)
+        request.httpMethod = HTTPMethod.DELETE.rawValue
+        request.httpBody = data
+        request.setValue("\(data.count)", forHTTPHeaderField: "Content-Lengh")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+            
+            if error != nil {
+                print("error")
+            } else if let resp = response as? HTTPURLResponse,
+                resp.statusCode == 201 || resp.statusCode == 200 {
+                complitionHandler(true)
+            }
+            }.resume()
+    }
+    
+    func removePost (_ post: Post, complitionHandler: @escaping (Bool) -> Void) {
+        let sendData = try? JSONEncoder().encode(post)
+        guard let url = URL(string: baseURL + APIs.posts.rawValue + "/\(post.id)"),
+            let data = sendData
+            else {
+                complitionHandler(false)
+                return
+        }
+        
+        let request = MutableURLRequest(url: url)
+        request.httpMethod = HTTPMethod.DELETE.rawValue
+        request.httpBody = data
+        request.setValue("\(data.count)", forHTTPHeaderField: "Content-Lengh")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+            
+            if error != nil {
+                print("error")
+            } else if let resp = response as? HTTPURLResponse,
+                resp.statusCode == 201 || resp.statusCode == 200 {
+                complitionHandler(true)
+            }
+        }.resume()
+    }
+    
+    func removeComment (_ comment: Comment, complitionHandler: @escaping (Bool) -> Void) {
+        let sendData = try? JSONEncoder().encode(comment)
+        guard let url = URL(string: baseURL + APIs.comments.rawValue + "/\(comment.id)"),
+            let data = sendData
+            else {
+                complitionHandler(false)
+                return
+        }
+        
+        let request = MutableURLRequest(url: url)
+        request.httpMethod = HTTPMethod.DELETE.rawValue
+        request.httpBody = data
+        request.setValue("\(data.count)", forHTTPHeaderField: "Content-Lengh")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+            
+            if error != nil {
+                print("error")
+            } else if let resp = response as? HTTPURLResponse,
+                resp.statusCode == 201 || resp.statusCode == 200 {
+                complitionHandler(true)
+            }
+        }.resume()
     }
 }

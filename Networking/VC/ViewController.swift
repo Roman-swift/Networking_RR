@@ -36,6 +36,14 @@ class PostsViewController: UIViewController {
             }
         }
     }
+    
+    func removePost (_ indexPath: IndexPath) {
+        DispatchQueue.main.async {
+            self.posts.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        
+    }
 
 	@IBAction func createPost(_ sender: Any) {
 
@@ -75,5 +83,22 @@ extension PostsViewController: UITableViewDataSource, UITableViewDelegate {
         vc.configure(posts[indexPath.row])
         
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let remove = UITableViewRowAction(style: .destructive, title: "Remove") { action, indexPath in
+            let currentPost = self.posts[indexPath.row]
+            
+            self.networkManager.removePost(currentPost) { _ in
+                self.removePost(indexPath)
+            }
+        }
+        
+        return [remove]
     }
 }

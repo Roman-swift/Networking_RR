@@ -20,6 +20,7 @@ class UsersViewController: UIViewController {
     }
     
     private var users: [User] = []
+    var networking = NetworkManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,14 @@ class UsersViewController: UIViewController {
 
             }
         }
+    }
+    
+    func removeUser (_ indexPath: IndexPath) {
+        DispatchQueue.main.async {
+            self.users.remove(at: indexPath.row)
+            self.usersTableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        
     }
     
     @IBAction func didTapAddUserButton(_ sender: UIBarButtonItem) {
@@ -65,6 +74,23 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
         vc.configure(users[indexPath.row])
 
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let remove = UITableViewRowAction(style: .destructive, title: "Remove") { action, indexPath in
+            let currentUser = self.users[indexPath.row]
+            
+            self.networking.removeUser(currentUser) { _ in
+                self.removeUser(indexPath)
+            }
+        }
+        
+        return [remove]
     }
 }
 
