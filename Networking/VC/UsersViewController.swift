@@ -48,14 +48,6 @@ class UsersViewController: UIViewController {
         }
     }
     
-    func addUserToUsers ( _ indexPath: IndexPath) {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddUserScreenVCID") as! AddUserTableViewController
-        let currentUser = self.users[indexPath.row]
-        vc.delegate = self
-        vc.configure(currentUser)
-        self.show(vc, sender: self)
-    }
-    
     @IBAction func didTapAddUserButton(_ sender: UIBarButtonItem) {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddUserScreenVCID") as! AddUserTableViewController
         vc.delegate = self
@@ -99,8 +91,18 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
                 self.removeUser(indexPath)
             }
         }
-        return [remove]
+        
+        let edit = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddUserScreenVCID") as! AddUserTableViewController
+            let currentUser = self.users[indexPath.row]
+            vc.delegate = self
+            vc.configure(currentUser)
+            self.show(vc, sender: self)
+        }
+        edit.backgroundColor = .blue
+        return [remove,edit]
     }
+    
 }
 
 extension UsersViewController: AddUserTableViewControllerDelegate {
