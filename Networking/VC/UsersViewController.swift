@@ -20,7 +20,6 @@ class UsersViewController: UIViewController {
     }
     
     private var users: [User] = []
-    var user: User?
     var networkManager = NetworkManager()
 
     override func viewDidLoad() {
