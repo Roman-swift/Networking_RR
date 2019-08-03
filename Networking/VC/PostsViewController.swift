@@ -37,6 +37,13 @@ class PostsViewController: UIViewController {
         }
     }
     
+    func saveNewPost (_ post: Post) {
+        self.posts.append(post)
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
     func removePost (_ indexPath: IndexPath) {
         DispatchQueue.main.async {
             self.posts.remove(at: indexPath.row)
@@ -45,27 +52,30 @@ class PostsViewController: UIViewController {
         
     }
 
-	@IBAction func createPost(_ sender: Any) {
+    @IBAction func  didTapAddUserButton(_ sender: UIBarButtonItem) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddPostScreenVCID") as! AddPostTableViewController
+        vc.delegate = self
+        self.show(vc, sender: self)
+        
+//        let post = Post(userId: 1, title: "myTitle", body: "mybody")
+//        networkManager.postCreatePost(post) { serverPost in
+//            post.id = serverPost.id
+//            DispatchQueue.main.async {
+//                let alert = UIAlertController(title: "Greate!", message: "Your post has been created!", preferredStyle: .alert)
+//
+//                self.present(alert, animated: true, completion: nil)
+//
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+//                    alert.dismiss(animated: true, completion: nil)})
+//            }
+//        }
+    }
 
-		let post = Post(userId: 1, title: "myTitle", body: "mybody")
-
-		networkManager.postCreatePost(post) { serverPost in
-			post.id = serverPost.id
-			DispatchQueue.main.async {
-				let alert = UIAlertController(title: "Greate!", message: "Your post has been created!", preferredStyle: .alert)
-
-				self.present(alert, animated: true, completion: nil)
-
-				DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
-					alert.dismiss(animated: true, completion: nil)})
-			}
-		}
-	}
-    
-    func configure(_ user: User) {
-        self.user = user
+        func configure(_ user: User) {
+            self.user = user
     }
 }
+
 
 extension PostsViewController: UITableViewDataSource, UITableViewDelegate {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -100,5 +110,11 @@ extension PostsViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         return [remove]
+    }
+}
+    
+extension PostsViewController: AddPostTableViewControllerDelegate {
+    func save(_ post: Post) {
+        saveNewPost(post)
     }
 }

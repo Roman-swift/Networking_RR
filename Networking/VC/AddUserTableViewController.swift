@@ -51,7 +51,7 @@ class AddUserTableViewController: UITableViewController {
                     
                     self.present(alert, animated: true, completion: nil)
                     
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
                         alert.dismiss(animated: true, completion: nil)
                     })
                 }

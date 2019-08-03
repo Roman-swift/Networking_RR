@@ -10,13 +10,15 @@
 		174D7FE522E9EFB6006046A0 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174D7FE322E9EFB6006046A0 /* PostTableViewCell.swift */; };
 		174D7FE622E9EFB6006046A0 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 174D7FE422E9EFB6006046A0 /* PostTableViewCell.xib */; };
 		17DC80C422E6219600E5A73A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DC80C322E6219600E5A73A /* AppDelegate.swift */; };
-		17DC80C622E6219600E5A73A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DC80C522E6219600E5A73A /* ViewController.swift */; };
+		17DC80C622E6219600E5A73A /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DC80C522E6219600E5A73A /* PostsViewController.swift */; };
 		17DC80C922E6219600E5A73A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17DC80C722E6219600E5A73A /* Main.storyboard */; };
 		17DC80CB22E6219800E5A73A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17DC80CA22E6219800E5A73A /* Assets.xcassets */; };
 		17DC80CE22E6219800E5A73A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17DC80CC22E6219800E5A73A /* LaunchScreen.storyboard */; };
 		17DC80D622E627E900E5A73A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DC80D522E627E900E5A73A /* Post.swift */; };
 		17DC80D822E6328D00E5A73A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DC80D722E6328D00E5A73A /* NetworkManager.swift */; };
 		1C21779D22F1CF9300E32FFE /* AddUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C21779C22F1CF9300E32FFE /* AddUserTableViewController.swift */; };
+		1C4D4A9122F6401B001F7C04 /* AddPostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4D4A9022F6401B001F7C04 /* AddPostTableViewController.swift */; };
+		1C4D4A9322F6407F001F7C04 /* AddCommentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4D4A9222F6407F001F7C04 /* AddCommentTableViewController.swift */; };
 		1C64ACD222EEF53100052DEF /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C64ACD122EEF53100052DEF /* UsersViewController.swift */; };
 		1C64ACD522EEFB6800052DEF /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C64ACD322EEFB6800052DEF /* UsersTableViewCell.swift */; };
 		1C64ACD622EEFB6800052DEF /* UsersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C64ACD422EEFB6800052DEF /* UsersTableViewCell.xib */; };
@@ -32,7 +34,7 @@
 		174D7FE422E9EFB6006046A0 /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		17DC80C022E6219600E5A73A /* Networking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Networking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17DC80C322E6219600E5A73A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		17DC80C522E6219600E5A73A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		17DC80C522E6219600E5A73A /* PostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
 		17DC80C822E6219600E5A73A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		17DC80CA22E6219800E5A73A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17DC80CD22E6219800E5A73A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -40,6 +42,8 @@
 		17DC80D522E627E900E5A73A /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		17DC80D722E6328D00E5A73A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		1C21779C22F1CF9300E32FFE /* AddUserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserTableViewController.swift; sourceTree = "<group>"; };
+		1C4D4A9022F6401B001F7C04 /* AddPostTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostTableViewController.swift; sourceTree = "<group>"; };
+		1C4D4A9222F6407F001F7C04 /* AddCommentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentTableViewController.swift; sourceTree = "<group>"; };
 		1C64ACD122EEF53100052DEF /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		1C64ACD322EEFB6800052DEF /* UsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
 		1C64ACD422EEFB6800052DEF /* UsersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersTableViewCell.xib; sourceTree = "<group>"; };
@@ -110,9 +114,11 @@
 			isa = PBXGroup;
 			children = (
 				1C64ACD122EEF53100052DEF /* UsersViewController.swift */,
-				17DC80C522E6219600E5A73A /* ViewController.swift */,
-				1C64ACDB22EF30CB00052DEF /* CommentsViewController.swift */,
 				1C21779C22F1CF9300E32FFE /* AddUserTableViewController.swift */,
+				17DC80C522E6219600E5A73A /* PostsViewController.swift */,
+				1C4D4A9022F6401B001F7C04 /* AddPostTableViewController.swift */,
+				1C64ACDB22EF30CB00052DEF /* CommentsViewController.swift */,
+				1C4D4A9222F6407F001F7C04 /* AddCommentTableViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -201,6 +207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C4D4A9122F6401B001F7C04 /* AddPostTableViewController.swift in Sources */,
 				17DC80D822E6328D00E5A73A /* NetworkManager.swift in Sources */,
 				1C64ACD222EEF53100052DEF /* UsersViewController.swift in Sources */,
 				17DC80D622E627E900E5A73A /* Post.swift in Sources */,
@@ -208,7 +215,8 @@
 				1C21779D22F1CF9300E32FFE /* AddUserTableViewController.swift in Sources */,
 				1C64ACD822EEFCF400052DEF /* User.swift in Sources */,
 				174D7FE522E9EFB6006046A0 /* PostTableViewCell.swift in Sources */,
-				17DC80C622E6219600E5A73A /* ViewController.swift in Sources */,
+				17DC80C622E6219600E5A73A /* PostsViewController.swift in Sources */,
+				1C4D4A9322F6407F001F7C04 /* AddCommentTableViewController.swift in Sources */,
 				1C64ACDA22EF306500052DEF /* Comment.swift in Sources */,
 				1C64ACDC22EF30CB00052DEF /* CommentsViewController.swift in Sources */,
 				17DC80C422E6219600E5A73A /* AppDelegate.swift in Sources */,
