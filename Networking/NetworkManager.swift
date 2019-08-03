@@ -51,7 +51,7 @@ class NetworkManager {
 		guard let url = URL(string: baseURL + APIs.posts.rawValue),
 		let data = sendData else { return }
 
-		let request = MutableURLRequest(url: url)
+        var request = URLRequest(url: url)
 		request.httpMethod = HTTPMethod.POST.rawValue
 		request.httpBody = data
 		request.setValue("\(data.count)", forHTTPHeaderField: "Content-Lengh")
@@ -108,6 +108,32 @@ class NetworkManager {
         }
     }
     
+    func createUser (_ user: User, complitionHandler: @escaping (User) -> Void) {
+        let sendData = try? JSONEncoder().encode(user)
+        guard let url = URL(string: baseURL + APIs.users.rawValue),
+            let data = sendData
+            else { return }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = HTTPMethod.POST.rawValue
+        request.httpBody = data
+        request.setValue("\(data.count)", forHTTPHeaderField: "Content-Lengh")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        URLSession.shared.dataTask(with: request as URLRequest) {
+            (data, response, error) in
+            
+            if error != nil {
+                print("error")
+            } else if let resp = response as? HTTPURLResponse,
+                resp.statusCode == 201, let responseData = data {
+                if let responseUser = try? JSONDecoder().decode(User.self, from: responseData) {
+                    complitionHandler(responseUser)
+                }
+            }
+        }.resume()
+    }
+    
     func getCommentsForPost(_ postId: Int, _ completionHandler: @escaping ([Comment]) -> Void) {
         if let url = URL(string: "https://jsonplaceholder.typicode.com/comments?postId=\(String(postId))") {
             print(url)
@@ -158,9 +184,8 @@ class NetworkManager {
                 complitionHandler(false)
                 return
         }
-        
-        
-        let request = MutableURLRequest(url: url)
+
+        var request = URLRequest(url: url)
         request.httpMethod = HTTPMethod.DELETE.rawValue
         request.httpBody = data
         request.setValue("\(data.count)", forHTTPHeaderField: "Content-Lengh")
@@ -174,7 +199,7 @@ class NetworkManager {
                 resp.statusCode == 201 || resp.statusCode == 200 {
                 complitionHandler(true)
             }
-            }.resume()
+        }.resume()
     }
     
     func removePost (_ post: Post, complitionHandler: @escaping (Bool) -> Void) {
@@ -186,7 +211,7 @@ class NetworkManager {
                 return
         }
         
-        let request = MutableURLRequest(url: url)
+        var request = URLRequest(url: url)
         request.httpMethod = HTTPMethod.DELETE.rawValue
         request.httpBody = data
         request.setValue("\(data.count)", forHTTPHeaderField: "Content-Lengh")
@@ -212,7 +237,7 @@ class NetworkManager {
                 return
         }
         
-        let request = MutableURLRequest(url: url)
+        var request = URLRequest(url: url)
         request.httpMethod = HTTPMethod.DELETE.rawValue
         request.httpBody = data
         request.setValue("\(data.count)", forHTTPHeaderField: "Content-Lengh")

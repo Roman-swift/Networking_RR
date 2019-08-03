@@ -20,19 +20,24 @@ class UsersViewController: UIViewController {
     }
     
     private var users: [User] = []
-    var networking = NetworkManager()
+    var user: User?
+    var networkManager = NetworkManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         NetworkManager().getAllUsers() { users in
-            
-            self.users = users
-            
+                self.users = users
             DispatchQueue.main.async {
                 self.usersTableView.reloadData()
-
             }
+        }
+    }
+    
+    func saveNewUser (_ user: User) {
+        self.users.append(user)
+        DispatchQueue.main.async {
+            self.usersTableView.reloadData()
         }
     }
     
@@ -41,17 +46,22 @@ class UsersViewController: UIViewController {
             self.users.remove(at: indexPath.row)
             self.usersTableView.deleteRows(at: [indexPath], with: .fade)
         }
-        
+    }
+    
+    func addUserToUsers ( _ indexPath: IndexPath) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddUserScreenVCID") as! AddUserTableViewController
+        let currentUser = self.users[indexPath.row]
+        vc.delegate = self
+        vc.configure(currentUser)
+        self.show(vc, sender: self)
     }
     
     @IBAction func didTapAddUserButton(_ sender: UIBarButtonItem) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "AddUserVCID")
-        vc.modalPresentationStyle = .popover
-        vc.popoverPresentationController?.delegate = self
-        self.present(vc, animated: true)
-        vc.popoverPresentationController?.barButtonItem = sender
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddUserScreenVCID") as! AddUserTableViewController
+        vc.delegate = self
+        self.show(vc, sender: self)
     }
+    
     @IBAction func didTapBackButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -85,14 +95,18 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
         let remove = UITableViewRowAction(style: .destructive, title: "Remove") { action, indexPath in
             let currentUser = self.users[indexPath.row]
             
-            self.networking.removeUser(currentUser) { _ in
+            self.networkManager.removeUser(currentUser) { _ in
                 self.removeUser(indexPath)
             }
         }
-        
         return [remove]
     }
 }
 
-extension UsersViewController: UIPopoverPresentationControllerDelegate {
+extension UsersViewController: AddUserTableViewControllerDelegate {
+  
+    func save(_ user: User) {
+        saveNewUser(user)
+    }
 }
+
