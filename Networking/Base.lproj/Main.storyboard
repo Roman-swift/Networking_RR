@@ -550,6 +550,7 @@
                         <outlet property="emailTExtField" destination="ek1-M3-YXH" id="yq5-zh-bZc"/>
                         <outlet property="nameTextField" destination="KaV-8z-FJN" id="Y5q-I1-DZo"/>
                         <outlet property="phoneTextField" destination="58q-pJ-AOF" id="DXn-i7-or4"/>
+                        <outlet property="saveUpdateUser" destination="4su-Fo-SZd" id="EKN-j5-OCs"/>
                         <outlet property="streetTextField" destination="493-eV-AlP" id="caI-EC-Vkh"/>
                         <outlet property="suiteTextField" destination="SJ8-93-V0F" id="o9L-GJ-EJ0"/>
                         <outlet property="usernameTextField" destination="oLa-Id-tTo" id="7PZ-cy-1iA"/>

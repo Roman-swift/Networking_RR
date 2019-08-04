@@ -24,7 +24,8 @@ class AddUserTableViewController: UITableViewController {
     @IBOutlet weak var companyNameTextField: UITextField!
     @IBOutlet weak var catchphrazeTextField: UITextField!
     @IBOutlet weak var bsTextField: UITextField!
-   
+    @IBOutlet weak var saveUpdateUser: UIBarButtonItem!
+    
     private var users: [User] = []
     private var user: User?
     var networkManager = NetworkManager()
@@ -32,8 +33,22 @@ class AddUserTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    }
+        
+        if let currentUser = self.user {
+            print("Current user is \(currentUser.name)")
+            self.nameTextField.text = currentUser.name
+            self.usernameTextField.text = currentUser.username
+            self.emailTExtField.text = currentUser.email
+            self.phoneTextField.text = currentUser.phone
+            self.websiteTextField.text = currentUser.website
+            self.streetTextField.text = currentUser.address.street
+            self.suiteTextField.text = currentUser.address.suite
+            self.cityTextField.text = currentUser.address.city
+            self.companyNameTextField.text = currentUser.company.name
+            self.catchphrazeTextField.text = currentUser.company.catchPhrase
+            self.bsTextField.text = currentUser.company.bs
+        }
+}
     
     func configure(_ user: User) {
         self.user = user
