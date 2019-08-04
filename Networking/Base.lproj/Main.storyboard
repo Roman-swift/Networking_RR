@@ -173,7 +173,7 @@
             </objects>
             <point key="canvasLocation" x="-293" y="98"/>
         </scene>
-        <!--Add user-->
+        <!--Add User-->
         <scene sceneID="gnl-Bx-t6h">
             <objects>
                 <tableViewController storyboardIdentifier="AddUserScreenVCID" id="BM1-Sm-YjJ" customClass="AddUserTableViewController" customModule="Networking" customModuleProvider="target" sceneMemberID="viewController">
@@ -530,7 +530,7 @@
                             <outlet property="delegate" destination="BM1-Sm-YjJ" id="G7C-c2-qdN"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Add user" id="vqa-Zx-tFr">
+                    <navigationItem key="navigationItem" title="Add User" id="vqa-Zx-tFr">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="suT-Yp-Nxv">
                             <connections>
                                 <action selector="didTapCancel:" destination="BM1-Sm-YjJ" id="ib0-1l-o0i"/>
@@ -543,6 +543,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addUpdateUserItem" destination="vqa-Zx-tFr" id="qBd-yg-iah"/>
                         <outlet property="bsTextField" destination="932-NL-NNZ" id="AOl-LW-6G3"/>
                         <outlet property="catchphrazeTextField" destination="u1u-bg-p1x" id="g0h-Hc-Bwt"/>
                         <outlet property="cityTextField" destination="xZ9-5O-Kfh" id="GaZ-eG-Utu"/>

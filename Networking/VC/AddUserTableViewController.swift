@@ -25,6 +25,7 @@ class AddUserTableViewController: UITableViewController {
     @IBOutlet weak var catchphrazeTextField: UITextField!
     @IBOutlet weak var bsTextField: UITextField!
     @IBOutlet weak var saveUpdateUser: UIBarButtonItem!
+    @IBOutlet weak var addUpdateUserItem: UINavigationItem!
     
     private var users: [User] = []
     private var user: User?
@@ -33,9 +34,10 @@ class AddUserTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if user != nil {
+            self.addUpdateUserItem.title = "Update User"
         
         if let currentUser = self.user {
-            print("Current user is \(currentUser.name)")
             self.nameTextField.text = currentUser.name
             self.usernameTextField.text = currentUser.username
             self.emailTExtField.text = currentUser.email
@@ -47,15 +49,15 @@ class AddUserTableViewController: UITableViewController {
             self.companyNameTextField.text = currentUser.company.name
             self.catchphrazeTextField.text = currentUser.company.catchPhrase
             self.bsTextField.text = currentUser.company.bs
+            }
         }
-}
+    }
     
     func configure(_ user: User) {
         self.user = user
     }
-
-    @IBAction func didTapeToSave(_ sender: UIBarButtonItem) {
-
+    
+    func save() {
         if let name = nameTextField.text, let username = usernameTextField.text, let email = emailTExtField.text, let phone = phoneTextField.text, let website = websiteTextField.text, let street = streetTextField.text, let suite = suiteTextField.text, let city = cityTextField.text,let companyName = companyNameTextField.text, let catchPhrase = catchphrazeTextField.text, let bs = bsTextField.text {
             
             let newUser = User(id: users.count + 1, name: name, username: username, email: email, address: Address(street: street, suite: suite, city: city), phone: phone, website: website, company: Company(name: companyName, catchPhrase: catchPhrase, bs: bs))
@@ -74,22 +76,27 @@ class AddUserTableViewController: UITableViewController {
                 networkManager.createUser(newUser) { serverUser in
                     newUser.id = serverUser.id
                     self.delegate?.save(newUser)
-
-                DispatchQueue.main.async {
-                    let alert = UIAlertController(title: "User creation", message: "Your user is creating...", preferredStyle: .alert)
                     
-                    self.present(alert, animated: true, completion: nil)
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
-                        alert.dismiss(animated: true, completion: nil)
-                        print(newUser.id)
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(title: "User creation", message: "Your user is creating...", preferredStyle: .alert)
                         
-                        self.navigationController?.popToRootViewController(animated: true)
-                    })
+                        self.present(alert, animated: true, completion: nil)
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+                            alert.dismiss(animated: true, completion: nil)
+                            print(newUser.id)
+                            
+                            self.navigationController?.popToRootViewController(animated: true)
+                        })
+                    }
                 }
             }
         }
     }
+
+    @IBAction func didTapeToSave(_ sender: UIBarButtonItem) {
+save()
+        
 }
     
     @IBAction func didTapCancel(_ sender: UIBarButtonItem) {
