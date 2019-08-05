@@ -39,6 +39,15 @@ class UsersViewController: UIViewController {
             self.usersTableView.reloadData()
         }
     }
+    func updateCurrentUser (_ user: User) {
+        
+        if let index = users.firstIndex(where: {$0.id == user.id}) {
+            self.users[index] = user
+        DispatchQueue.main.async {
+            self.usersTableView.reloadData()
+            }
+        }
+    }
     
     func removeUser (_ indexPath: IndexPath) {
         DispatchQueue.main.async {
@@ -46,6 +55,8 @@ class UsersViewController: UIViewController {
             self.usersTableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
+    
+    
     
     @IBAction func didTapAddUserButton(_ sender: UIBarButtonItem) {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddUserScreenVCID") as! AddUserTableViewController
@@ -106,8 +117,14 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension UsersViewController: AddUserTableViewControllerDelegate {
   
-    func save(_ user: User) {
-        saveNewUser(user)
+    func createOrUpdateUser(_ user: User) {
+        
+         if users.contains(where: {$0.id == user.id}){
+            updateCurrentUser(user)
+        } else {
+            saveNewUser(user)
+        }
     }
 }
+
 

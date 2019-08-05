@@ -253,4 +253,34 @@ class NetworkManager {
             }
         }.resume()
     }
+    
+    func editUser (_ user: User, complitionHandler: @escaping (Bool) -> Void) {
+        let sendData = try? JSONEncoder().encode(user)
+        guard let url = URL(string: baseURL + APIs.users.rawValue +  "\\\(user.id)"),
+            let data = sendData
+            else {
+                complitionHandler(false)
+                return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = HTTPMethod.PUT.rawValue
+        request.httpBody = data
+        request.setValue("\(data.count)", forHTTPHeaderField: "Content-Lengh")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        URLSession.shared.dataTask(with: request as URLRequest) {
+            (data, response, error) in
+            
+            if error != nil {
+                print("Error")
+                return
+            }
+            guard let resp = response as? HTTPURLResponse,
+                (200...299).contains(resp.statusCode) else {
+                    print("server error")
+                    return
+            }
+        }.resume()
+    }
 }

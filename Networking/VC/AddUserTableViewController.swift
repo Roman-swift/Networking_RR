@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AddUserTableViewControllerDelegate: class {
-    func save(_ user: User)
+    func createOrUpdateUser(_ user: User)
 }
 
 class AddUserTableViewController: UITableViewController {
@@ -75,7 +75,7 @@ class AddUserTableViewController: UITableViewController {
             } else {
                 networkManager.createUser(newUser) { serverUser in
                     newUser.id = serverUser.id
-                    self.delegate?.save(newUser)
+                    self.delegate?.createOrUpdateUser(newUser)
                     
                     DispatchQueue.main.async {
                         let alert = UIAlertController(title: "User creation", message: "Your user is creating...", preferredStyle: .alert)
@@ -93,10 +93,39 @@ class AddUserTableViewController: UITableViewController {
             }
         }
     }
+    
+    func update() {
+         if let name = nameTextField.text, let username = usernameTextField.text, let email = emailTExtField.text, let phone = phoneTextField.text, let website = websiteTextField.text, let street = streetTextField.text, let suite = suiteTextField.text, let city = cityTextField.text,let companyName = companyNameTextField.text, let catchPhrase = catchphrazeTextField.text, let bs = bsTextField.text {
+            if let userId = user?.id {
+                let updateUser = User(id: userId, name: name, username: username, email: email, address: Address(street: street, suite: suite, city: city), phone: phone, website: website, company: Company(name: companyName, catchPhrase: catchPhrase, bs: bs))
+                
+                networkManager.editUser(updateUser) { _ in
+                    
+                    DispatchQueue.main.async {
+                        self.delegate?.createOrUpdateUser(updateUser)
+
+                        let alert = UIAlertController(title: "User updation", message: "Your user is updating...", preferredStyle: .alert)
+                        
+                        self.present(alert, animated: true, completion: nil)
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+                            alert.dismiss(animated: true, completion: nil)
+                            print(updateUser.id)
+                            
+                            self.navigationController?.popViewController(animated: true)
+                        })
+                    }
+                }
+            }
+        }
+    }
 
     @IBAction func didTapeToSave(_ sender: UIBarButtonItem) {
-save()
-        
+        if user == nil {
+            save()
+        } else  {
+            update()
+        }
 }
     
     @IBAction func didTapCancel(_ sender: UIBarButtonItem) {
