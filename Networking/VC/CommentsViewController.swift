@@ -22,7 +22,8 @@ class CommentsViewController: UIViewController {
     private var post: Post?
     var networkManager = NetworkManager()
     private var comments: [Comment] = []
-    
+    var refreshControl = UIRefreshControl()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,6 +37,9 @@ class CommentsViewController: UIViewController {
                 }
             }
         }
+        
+        refreshControl.addTarget(self, action: #selector(refresh), for:.valueChanged)
+        self.commentsTableView.addSubview(refreshControl)
     }
     
     func removeComment (_ indexPath: IndexPath) {
@@ -49,7 +53,20 @@ class CommentsViewController: UIViewController {
         func configure(_ post: Post) {
             self.post = post
     }
+    
+    @objc func refresh(_ sender: Any) {
+        if let myPost = post {
+            NetworkManager().getCommentsForPost(myPost.id) { (comments) in
+                self.comments = comments
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+                self.commentsTableView.reloadData()
+                }
+            }
+        }
+    }
 }
+
 
 extension CommentsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

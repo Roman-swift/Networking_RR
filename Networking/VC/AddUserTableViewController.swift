@@ -68,7 +68,7 @@ class AddUserTableViewController: UITableViewController {
                     
                     self.present(alert, animated: true, completion: nil)
                     
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
                         alert.dismiss(animated: true, completion: nil)
                     })
                 }
@@ -82,7 +82,7 @@ class AddUserTableViewController: UITableViewController {
                         
                         self.present(alert, animated: true, completion: nil)
                         
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
                             alert.dismiss(animated: true, completion: nil)
                             print(newUser.id)
                             
@@ -108,7 +108,7 @@ class AddUserTableViewController: UITableViewController {
                         
                         self.present(alert, animated: true, completion: nil)
                         
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
                             alert.dismiss(animated: true, completion: nil)
                             print(updateUser.id)
                             
@@ -126,11 +126,10 @@ class AddUserTableViewController: UITableViewController {
         } else  {
             update()
         }
-}
+    }
     
     @IBAction func didTapCancel(_ sender: UIBarButtonItem) {
         self.navigationController?.popToRootViewController(animated: true)
-
     }
 }
 

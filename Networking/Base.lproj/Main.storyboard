@@ -40,7 +40,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="p0g-mF-qgG" id="NfM-Nt-8rv"/>
+                        <outlet property="postsTableView" destination="p0g-mF-qgG" id="NfM-Nt-8rv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

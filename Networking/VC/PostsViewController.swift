@@ -10,19 +10,20 @@ import UIKit
 
 class PostsViewController: UIViewController {
 
-	@IBOutlet weak var tableView: UITableView! {
+	@IBOutlet weak var postsTableView: UITableView! {
 		didSet {
-			tableView.delegate = self
-			tableView.dataSource = self
+			postsTableView.delegate = self
+			postsTableView.dataSource = self
 
 			let nib = UINib(nibName: "PostTableViewCell", bundle: nil)
-			tableView.register(nib, forCellReuseIdentifier: "PostCellID")
+			postsTableView.register(nib, forCellReuseIdentifier: "PostCellID")
 		}
 	}
 
     var posts: [Post] = []
 	var networkManager = NetworkManager()
     var user: User?
+    var refreshControl = UIRefreshControl()
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -31,44 +32,45 @@ class PostsViewController: UIViewController {
             NetworkManager().getPostsForUser(myUser.id) { (posts) in
                 self.posts = posts
                 DispatchQueue.main.async {
-                    self.tableView.reloadData()
+                    self.postsTableView.reloadData()
                 }
             }
         }
+        
+        refreshControl.addTarget(self, action: #selector(refresh), for:.valueChanged)
+        self.postsTableView.addSubview(refreshControl)
     }
     
     func saveNewPost (_ post: Post) {
         self.posts.append(post)
         DispatchQueue.main.async {
-            self.tableView.reloadData()
+            self.postsTableView.reloadData()
         }
     }
     
     func removePost (_ indexPath: IndexPath) {
         DispatchQueue.main.async {
             self.posts.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .fade)
+            self.postsTableView.deleteRows(at: [indexPath], with: .fade)
         }
-        
     }
+    
+    @objc func refresh(_ sender: Any) {
+        if let myUser = user {
+            NetworkManager().getPostsForUser(myUser.id) { (posts) in
+                self.posts = posts
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+                self.postsTableView.reloadData()
+            }
+        }
+    }
+}
 
-    @IBAction func  didTapAddUserButton(_ sender: UIBarButtonItem) {
+    @IBAction func  didTapAddPostButton(_ sender: UIBarButtonItem) {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddPostScreenVCID") as! AddPostTableViewController
         vc.delegate = self
         self.show(vc, sender: self)
-        
-//        let post = Post(userId: 1, title: "myTitle", body: "mybody")
-//        networkManager.postCreatePost(post) { serverPost in
-//            post.id = serverPost.id
-//            DispatchQueue.main.async {
-//                let alert = UIAlertController(title: "Greate!", message: "Your post has been created!", preferredStyle: .alert)
-//
-//                self.present(alert, animated: true, completion: nil)
-//
-//                DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
-//                    alert.dismiss(animated: true, completion: nil)})
-//            }
-//        }
     }
 
         func configure(_ user: User) {

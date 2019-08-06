@@ -21,6 +21,8 @@ class UsersViewController: UIViewController {
     
     private var users: [User] = []
     var networkManager = NetworkManager()
+    var refreshControl = UIRefreshControl()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +33,9 @@ class UsersViewController: UIViewController {
                 self.usersTableView.reloadData()
             }
         }
+        
+        refreshControl.addTarget(self, action: #selector(refresh), for:.valueChanged)
+        self.usersTableView.addSubview(refreshControl)
     }
     
     func saveNewUser (_ user: User) {
@@ -56,6 +61,15 @@ class UsersViewController: UIViewController {
         }
     }
     
+    @objc func refresh(_ sender: Any) {
+        networkManager.getAllUsers { (users) in
+            self.users = users
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+                self.usersTableView.reloadData()
+            }
+        }
+    }
     
     
     @IBAction func didTapAddUserButton(_ sender: UIBarButtonItem) {
