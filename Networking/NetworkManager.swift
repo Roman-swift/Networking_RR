@@ -283,4 +283,59 @@ class NetworkManager {
             }
         }.resume()
     }
+    func editPost (_ post: Post, complitionHandler: @escaping (Bool) -> Void) {
+        let sendData = try? JSONEncoder().encode(post)
+        guard let url = URL(string: baseURL + APIs.posts.rawValue +  "\\\(post.id)"),
+            let data = sendData
+            else {
+                complitionHandler(false)
+                return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = HTTPMethod.PUT.rawValue
+        request.httpBody = data
+        request.setValue("\(data.count)", forHTTPHeaderField: "Content-Lengh")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        URLSession.shared.dataTask(with: request as URLRequest) {
+            (data, response, error) in
+            
+            if error != nil {
+                print("Error")
+                return
+            }
+            guard let resp = response as? HTTPURLResponse,
+                (200...299).contains(resp.statusCode) else {
+                    print("server error")
+                    return
+            }
+        }.resume()
+    }
+    
+    func createPost (_ post: Post, complitionHandler: @escaping (Post) -> Void) {
+        let sendData = try? JSONEncoder().encode(post)
+        guard let url = URL(string: baseURL + APIs.posts.rawValue),
+            let data = sendData
+            else { return }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = HTTPMethod.POST.rawValue
+        request.httpBody = data
+        request.setValue("\(data.count)", forHTTPHeaderField: "Content-Lengh")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        URLSession.shared.dataTask(with: request as URLRequest) {
+            (data, response, error) in
+            
+            if error != nil {
+                print("error")
+            } else if let resp = response as? HTTPURLResponse,
+                resp.statusCode == 201, let responseData = data {
+                if let responsePost = try? JSONDecoder().decode(Post.self, from: responseData) {
+                    complitionHandler(responsePost)
+                }
+            }
+        }.resume()
+    }
 }

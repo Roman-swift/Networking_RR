@@ -35,7 +35,7 @@
                     <navigationItem key="navigationItem" title="Posts" id="UCD-5P-xri">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ojX-Pq-YbD">
                             <connections>
-                                <action selector="didTapAddUserButton:" destination="BYZ-38-t0r" id="TQy-E1-Nfi"/>
+                                <action selector="didTapAddPostButton:" destination="BYZ-38-t0r" id="iwl-o2-5VO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -654,16 +654,17 @@
                     <navigationItem key="navigationItem" title="Add post" id="KrR-fh-x6R">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="KtW-r5-2YU">
                             <connections>
-                                <action selector="didTapCancel:" destination="Qk6-Qo-0gm" id="dIG-lX-dj6"/>
+                                <action selector="didTapCancel:" destination="Qk6-Qo-0gm" id="fqY-Ok-xmJ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="iEv-VU-UGs">
                             <connections>
-                                <action selector="didTapeToSave:" destination="Qk6-Qo-0gm" id="Wdj-yZ-3gk"/>
+                                <action selector="didTapSaveButton:" destination="Qk6-Qo-0gm" id="2vw-EU-zxg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addUpdatePostItem" destination="KrR-fh-x6R" id="0Sd-56-xrq"/>
                         <outlet property="bodyTextField" destination="wZl-dp-OiV" id="BuK-Lg-2Mo"/>
                         <outlet property="titleTextField" destination="Iox-ye-869" id="vaI-yt-kNJ"/>
                     </connections>

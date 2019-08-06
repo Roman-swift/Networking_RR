@@ -28,15 +28,14 @@ class PostsViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
         
-        if let myUser = user {
-            NetworkManager().getPostsForUser(myUser.id) { (posts) in
+        if let currentUser = user {
+            NetworkManager().getPostsForUser(currentUser.id) { (posts) in
+            DispatchQueue.main.async {
                 self.posts = posts
-                DispatchQueue.main.async {
-                    self.postsTableView.reloadData()
-                }
+                self.postsTableView.reloadData()
             }
         }
-        
+    }
         refreshControl.addTarget(self, action: #selector(refresh), for:.valueChanged)
         self.postsTableView.addSubview(refreshControl)
     }
@@ -45,6 +44,15 @@ class PostsViewController: UIViewController {
         self.posts.append(post)
         DispatchQueue.main.async {
             self.postsTableView.reloadData()
+        }
+    }
+    
+    func updateCurrentPost (_ post: Post) {
+        if let index = posts.firstIndex(where: {$0.id == post.id}) {
+            self.posts[index] = post
+            DispatchQueue.main.async {
+                self.postsTableView.reloadData()
+            }
         }
     }
     
@@ -111,12 +119,25 @@ extension PostsViewController: UITableViewDataSource, UITableViewDelegate {
             }
         }
         
-        return [remove]
+        let edit = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddPostScreenVCID") as! AddPostTableViewController
+            let currentPost = self.posts[indexPath.row]
+            vc.delegate = self
+            vc.configure(currentPost)
+            self.show(vc, sender: self)
+        }
+        edit.backgroundColor = .blue
+        return [remove,edit]
     }
 }
     
 extension PostsViewController: AddPostTableViewControllerDelegate {
-    func save(_ post: Post) {
-        saveNewPost(post)
+    func createOrUpdatePost(_ post: Post) {
+        
+        if posts.contains(where: {$0.id == post.id}){
+            updateCurrentPost(post)
+        } else {
+            saveNewPost(post)
+        }
     }
 }
