@@ -27,17 +27,20 @@ class PostsViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
         
+       
+        refreshControl.addTarget(self, action: #selector(refresh), for:.valueChanged)
+        self.postsTableView.addSubview(refreshControl)
+        
         if let currentUser = user {
             NetworkManager().getPostsForUser(userId: currentUser.id) { (posts) in
-            DispatchQueue.main.async {
-                self.posts = posts
-                self.postsTableView.reloadData()
+                DispatchQueue.main.async {
+                    self.posts = posts
+                    self.postsTableView.reloadData()
+                }
             }
         }
     }
-        refreshControl.addTarget(self, action: #selector(refresh), for:.valueChanged)
-        self.postsTableView.addSubview(refreshControl)
-    }
+    
     
     func saveNewPost (_ post: Post) {
         self.posts.append(post)

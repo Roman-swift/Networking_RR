@@ -14,4 +14,12 @@ class Comment: Codable {
     var name: String
     var email: String
     var body: String
+    
+    init(id: Int, name: String, email: String, body: String) {
+        self.postId = 0
+        self.id = id
+        self.name = name
+        self.email = email
+        self.body = body
+    }
 }

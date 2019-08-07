@@ -29,6 +29,9 @@ class CommentsViewController: UIViewController {
 
         self.title = "Comments"
         
+        refreshControl.addTarget(self, action: #selector(refresh), for:.valueChanged)
+        self.commentsTableView.addSubview(refreshControl)
+        
         if let myPost = post {
             NetworkManager().getCommentsForPost(myPost.id) { (comments) in
                 self.comments = comments
@@ -37,9 +40,22 @@ class CommentsViewController: UIViewController {
                 }
             }
         }
-        
-        refreshControl.addTarget(self, action: #selector(refresh), for:.valueChanged)
-        self.commentsTableView.addSubview(refreshControl)
+    }
+    
+    func saveNewComment (_ comment: Comment) {
+        self.comments.append(comment)
+        DispatchQueue.main.async {
+            self.commentsTableView.reloadData()
+        }
+    }
+    
+    func updateCurrentComment (_ comment: Comment) {
+        if let index = comments.firstIndex(where: {$0.id == comment.id}) {
+            self.comments[index] = comment
+            DispatchQueue.main.async {
+                self.commentsTableView.reloadData()
+            }
+        }
     }
     
     func removeComment (_ indexPath: IndexPath) {
@@ -47,7 +63,6 @@ class CommentsViewController: UIViewController {
             self.comments.remove(at: indexPath.row)
             self.commentsTableView.deleteRows(at: [indexPath], with: .fade)
         }
-        
     }
     
         func configure(_ post: Post) {
@@ -65,8 +80,13 @@ class CommentsViewController: UIViewController {
             }
         }
     }
-}
 
+@IBAction func  didTapAddCommentButton(_ sender: UIBarButtonItem) {
+    let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddCommentScreenVCID") as! AddCommentTableViewController
+    vc.delegate = self
+    self.show(vc, sender: self)
+    }
+}
 
 extension CommentsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -93,7 +113,25 @@ extension CommentsViewController: UITableViewDelegate, UITableViewDataSource {
                 self.removeComment(indexPath)
             }
         }
+        let edit = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddCommentScreenVCID") as! AddCommentTableViewController
+            let currentComment = self.comments[indexPath.row]
+            vc.delegate = self
+            vc.configure(currentComment)
+            self.show(vc, sender: self)
+        }
+        edit.backgroundColor = .blue
+        return [remove,edit]
+    }
+}
+
+extension CommentsViewController: AddCommentTableViewControllerDelegate {
+    func createOrUpdateComment(_ comment: Comment) {
         
-        return [remove]
+        if comments.contains(where: {$0.id == comment.id}){
+            updateCurrentComment(comment)
+        } else {
+            saveNewComment(comment)
+        }
     }
 }

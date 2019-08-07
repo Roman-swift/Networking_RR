@@ -71,7 +71,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Comments" id="ycp-FQ-Y3Q">
                         <barButtonItem key="backBarButtonItem" title="Posts" id="Hi0-zc-uuK"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5Pk-uj-psz"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5Pk-uj-psz">
+                            <connections>
+                                <action selector="didTapAddCommentButton:" destination="SbW-xw-10p" id="jWZ-vn-HDL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="commentsTableView" destination="F25-Gg-8Yc" id="Dv1-Sx-uoA"/>
@@ -787,18 +791,20 @@
                     <navigationItem key="navigationItem" title="Add comment" id="Kda-4D-s6L">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="pFi-7c-bWA">
                             <connections>
-                                <action selector="didTapCancel:" destination="juF-Wv-Bru" id="c0a-Wh-HVT"/>
+                                <action selector="didTapCancel:" destination="juF-Wv-Bru" id="gc4-hn-j3Q"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Ob0-0I-zId">
                             <connections>
-                                <action selector="didTapeToSave:" destination="juF-Wv-Bru" id="KC9-Tl-4pP"/>
+                                <action selector="didTapSaveButton:" destination="juF-Wv-Bru" id="8M3-8V-j2m"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="catchphrazeTextField" destination="Y4b-aV-gLm" id="eu9-HO-VDd"/>
-                        <outlet property="nameTextField" destination="tPs-oN-8i0" id="iIC-Xg-OvK"/>
+                        <outlet property="bodyTextField" destination="Y4b-aV-gLm" id="KRa-Os-xBf"/>
+                        <outlet property="emailTextField" destination="soF-TS-Bek" id="BVY-hf-euk"/>
+                        <outlet property="nameTextField" destination="tPs-oN-8i0" id="Ocg-dI-D6a"/>
+                        <outlet property="titleItem" destination="Kda-4D-s6L" id="yhS-AR-tNK"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zjf-yR-AqB" userLabel="First Responder" sceneMemberID="firstResponder"/>
