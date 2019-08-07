@@ -20,8 +20,10 @@ class UsersViewController: UIViewController {
     }
     
     private var users: [User] = []
+
     var networkManager = NetworkManager()
     var refreshControl = UIRefreshControl()
+    var user: User?
 
 
     override func viewDidLoad() {
@@ -70,7 +72,6 @@ class UsersViewController: UIViewController {
             }
         }
     }
-    
     
     @IBAction func didTapAddUserButton(_ sender: UIBarButtonItem) {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddUserScreenVCID") as! AddUserTableViewController

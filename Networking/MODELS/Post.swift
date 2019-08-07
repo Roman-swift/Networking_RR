@@ -9,15 +9,15 @@
 import Foundation
 
 class Post: Codable {
-	var postId: Int
-	var id: Int
-	var title: String
-	var body: String
-
-	init(postId: Int, title: String, body: String) {
-		self.title = title
-		self.body = body
-		self.postId = postId
-		self.id = 101
-	}
+    var userId: Int
+    var id: Int
+    let title: String
+    let body: String
+    
+    init(id: Int, title: String, body: String) {
+        self.title = title
+        self.body = body
+        self.userId = 0
+        self.id = id
+    }
 }

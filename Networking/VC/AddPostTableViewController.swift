@@ -42,7 +42,7 @@ class AddPostTableViewController: UITableViewController {
         if let title = titleTextField.text,
             let body = bodyTextField.text {
             
-            let newPost = Post(postId: posts.count + 1, title: title, body: body)
+            let newPost = Post(id: posts.count + 1, title: title, body: body)
             
             if titleTextField.text == "" || bodyTextField.text == "" {
                 DispatchQueue.main.async {
@@ -80,7 +80,7 @@ class AddPostTableViewController: UITableViewController {
         if let title = titleTextField.text,
             let body = bodyTextField.text {
             if let postId = post?.id {
-                let updatedPost = Post(postId: postId, title: title, body: body)
+                let updatedPost = Post(id: postId, title: title, body: body)
 
                 networkManager.editPost(updatedPost) { _ in
                     DispatchQueue.main.async {

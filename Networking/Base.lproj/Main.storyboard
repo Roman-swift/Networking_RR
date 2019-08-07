@@ -619,15 +619,15 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Body" id="lB5-66-6lI">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="202" id="Anc-xV-4cJ">
-                                        <rect key="frame" x="0.0" y="155.5" width="414" height="202"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="43" id="Anc-xV-4cJ">
+                                        <rect key="frame" x="0.0" y="155.5" width="414" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Anc-xV-4cJ" id="h51-hE-hjO">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="201.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="42.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wZl-dp-OiV">
-                                                    <rect key="frame" x="20" y="7" width="374" height="188"/>
+                                                    <rect key="frame" x="20" y="7" width="374" height="29"/>
                                                     <string key="placeholder">Enter post body here
 </string>
                                                     <nil key="textColor"/>
@@ -671,7 +671,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gse-Vr-3CG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3106" y="1"/>
+            <point key="canvasLocation" x="3105.7971014492755" y="0.6696428571428571"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hcP-mT-3jj">
@@ -752,15 +752,15 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Body" id="BHi-EG-rnY">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="202" id="3Rm-7y-IVf">
-                                        <rect key="frame" x="0.0" y="199.5" width="414" height="202"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="41" id="3Rm-7y-IVf">
+                                        <rect key="frame" x="0.0" y="199.5" width="414" height="41"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Rm-7y-IVf" id="jdP-JM-SaA">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="201.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="40.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y4b-aV-gLm">
-                                                    <rect key="frame" x="20" y="7" width="374" height="188"/>
+                                                    <rect key="frame" x="20" y="7" width="374" height="27"/>
                                                     <string key="placeholder">Enter post body here
 </string>
                                                     <nil key="textColor"/>
@@ -803,7 +803,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zjf-yR-AqB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4594" y="465"/>
+            <point key="canvasLocation" x="4592.753623188406" y="464.73214285714283"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sNY-o7-yaj">

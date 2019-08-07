@@ -14,13 +14,12 @@ class PostsViewController: UIViewController {
 		didSet {
 			postsTableView.delegate = self
 			postsTableView.dataSource = self
-
 			let nib = UINib(nibName: "PostTableViewCell", bundle: nil)
 			postsTableView.register(nib, forCellReuseIdentifier: "PostCellID")
 		}
 	}
 
-    var posts: [Post] = []
+    private var posts: [Post] = []
 	var networkManager = NetworkManager()
     var user: User?
     var refreshControl = UIRefreshControl()
@@ -29,7 +28,7 @@ class PostsViewController: UIViewController {
 		super.viewDidLoad()
         
         if let currentUser = user {
-            NetworkManager().getPostsForUser(currentUser.id) { (posts) in
+            NetworkManager().getPostsForUser(userId: currentUser.id) { (posts) in
             DispatchQueue.main.async {
                 self.posts = posts
                 self.postsTableView.reloadData()
@@ -65,7 +64,7 @@ class PostsViewController: UIViewController {
     
     @objc func refresh(_ sender: Any) {
         if let myUser = user {
-            NetworkManager().getPostsForUser(myUser.id) { (posts) in
+            NetworkManager().getPostsForUser(userId: myUser.id) { (posts) in
                 self.posts = posts
             DispatchQueue.main.async {
                 self.refreshControl.endRefreshing()
@@ -74,15 +73,14 @@ class PostsViewController: UIViewController {
         }
     }
 }
+    func configure(_ user: User) {
+        self.user = user
+    }
 
     @IBAction func  didTapAddPostButton(_ sender: UIBarButtonItem) {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddPostScreenVCID") as! AddPostTableViewController
         vc.delegate = self
         self.show(vc, sender: self)
-    }
-
-        func configure(_ user: User) {
-            self.user = user
     }
 }
 

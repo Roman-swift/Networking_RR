@@ -155,14 +155,14 @@ class NetworkManager {
         }
     }
     
-    func getPostsForUser(_ userId: Int, _ completionHandler: @escaping ([Post]) -> Void) {
+    func getPostsForUser(userId: Int,completionHandler: @escaping ([Post]) -> Void) {
         if let url = URL(string: "https://jsonplaceholder.typicode.com/posts?userId=\(String(userId))") {
             print(url)
             URLSession.shared.dataTask(with: url) { (data, response, error) in
                 if error != nil {
                     
                 } else {
-                    if let resp = response as? HTTPURLResponse, (200..<300).contains(resp.statusCode), let responseData = data {
+                    if let resp = response as? HTTPURLResponse, resp.statusCode == 200, let responseData = data {
                         
                         print(responseData)
                         let posts = try? JSONDecoder().decode([Post].self, from: responseData)
