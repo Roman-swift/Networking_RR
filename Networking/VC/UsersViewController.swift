@@ -19,8 +19,9 @@ class UsersViewController: UIViewController {
         }
     }
     
-    private var users: [User] = []
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
 
+    private var users: [User] = []
     var networkManager = NetworkManager()
     var refreshControl = UIRefreshControl()
     var user: User?
@@ -29,10 +30,12 @@ class UsersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        activityIndicator.startAnimating()
         NetworkManager().getAllUsers() { users in
                 self.users = users
             DispatchQueue.main.async {
                 self.usersTableView.reloadData()
+                self.activityIndicator.stopAnimating()
             }
         }
         

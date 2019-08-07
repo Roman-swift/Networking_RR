@@ -19,6 +19,9 @@ class CommentsViewController: UIViewController {
         }
     }
     
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
+
+    
     private var post: Post?
     var networkManager = NetworkManager()
     private var comments: [Comment] = []
@@ -32,11 +35,13 @@ class CommentsViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(refresh), for:.valueChanged)
         self.commentsTableView.addSubview(refreshControl)
         
+        activityIndicator.startAnimating()
         if let myPost = post {
             NetworkManager().getCommentsForPost(myPost.id) { (comments) in
                 self.comments = comments
                 DispatchQueue.main.async {
                     self.commentsTableView.reloadData()
+                   self.activityIndicator.stopAnimating()
                 }
             }
         }

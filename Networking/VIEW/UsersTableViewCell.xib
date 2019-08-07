@@ -240,27 +240,16 @@
                             <constraint firstAttribute="trailing" secondItem="wI8-Cl-aQx" secondAttribute="trailing" constant="10" id="oph-Ut-eS1"/>
                         </constraints>
                     </view>
-                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="NHI-oO-hPl">
-                        <rect key="frame" x="144.5" y="179.5" width="50" height="50"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="50" id="Mt3-CY-hdx"/>
-                            <constraint firstAttribute="width" constant="50" id="Sun-R7-ddE"/>
-                        </constraints>
-                        <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </activityIndicatorView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="NHI-oO-hPl" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="5Jc-Mg-LZ3"/>
                     <constraint firstItem="YcQ-9t-pac" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="7bk-ED-W0Z"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="YcQ-9t-pac" secondAttribute="bottom" constant="10" id="Q75-Qb-rhg"/>
-                    <constraint firstItem="NHI-oO-hPl" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="TR0-gZ-egp"/>
                     <constraint firstAttribute="trailing" secondItem="YcQ-9t-pac" secondAttribute="trailing" constant="10" id="U8c-Ag-ovV"/>
                     <constraint firstItem="YcQ-9t-pac" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="yxs-la-e1y"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="activityIndicator" destination="NHI-oO-hPl" id="qSv-6o-Nax"/>
                 <outlet property="bsLabel" destination="GJs-25-iJc" id="J4b-Lj-91P"/>
                 <outlet property="catchPhraseLabel" destination="LyQ-Zp-DG0" id="tFo-Z1-F5c"/>
                 <outlet property="cityLabel" destination="m6M-8U-xaD" id="Jqu-2K-mev"/>

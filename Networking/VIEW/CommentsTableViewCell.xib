@@ -57,23 +57,16 @@
                             <constraint firstAttribute="trailing" secondItem="eTL-Wb-7ld" secondAttribute="trailing" constant="10" id="r3X-sF-z3D"/>
                         </constraints>
                     </view>
-                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="9Hj-x6-rz3">
-                        <rect key="frame" x="150" y="98.5" width="20" height="20"/>
-                        <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </activityIndicatorView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="ddn-LJ-XKo" secondAttribute="bottom" constant="8" id="HUs-8J-7BZ"/>
                     <constraint firstItem="ddn-LJ-XKo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Hbk-Q7-ifr"/>
-                    <constraint firstItem="9Hj-x6-rz3" firstAttribute="centerX" secondItem="ddn-LJ-XKo" secondAttribute="centerX" id="OAP-2I-1JQ"/>
                     <constraint firstAttribute="trailing" secondItem="ddn-LJ-XKo" secondAttribute="trailing" constant="8" id="PZx-xF-Hgj"/>
                     <constraint firstItem="ddn-LJ-XKo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="iN2-dG-B2x"/>
-                    <constraint firstItem="9Hj-x6-rz3" firstAttribute="centerY" secondItem="ddn-LJ-XKo" secondAttribute="centerY" id="qta-9k-lU3"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="activityIndicator" destination="9Hj-x6-rz3" id="8Zy-Fb-Ke5"/>
                 <outlet property="bodyLabel" destination="4BN-oE-m2R" id="CMZ-Ra-hx7"/>
                 <outlet property="emailLabel" destination="eTL-Wb-7ld" id="yb9-1c-pLV"/>
                 <outlet property="nameLabel" destination="L2z-ML-WaE" id="NBP-Sv-Rye"/>

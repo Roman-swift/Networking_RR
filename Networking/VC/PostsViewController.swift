@@ -19,6 +19,8 @@ class PostsViewController: UIViewController {
 		}
 	}
 
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
+
     private var posts: [Post] = []
 	var networkManager = NetworkManager()
     var user: User?
@@ -31,12 +33,13 @@ class PostsViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(refresh), for:.valueChanged)
         self.postsTableView.addSubview(refreshControl)
         
+        activityIndicator.startAnimating()
         if let currentUser = user {
             NetworkManager().getPostsForUser(userId: currentUser.id) { (posts) in
                 DispatchQueue.main.async {
                     self.posts = posts
                     self.postsTableView.reloadData()
-                }
+                    self.activityIndicator.stopAnimating()                }
             }
         }
     }

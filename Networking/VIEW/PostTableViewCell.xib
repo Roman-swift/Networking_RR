@@ -47,24 +47,17 @@
                             <constraint firstAttribute="trailing" secondItem="Rca-w7-pJ1" secondAttribute="trailing" constant="8" id="tN7-Y1-qt0"/>
                         </constraints>
                     </view>
-                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ZF3-Sh-czz">
-                        <rect key="frame" x="150" y="100" width="20" height="20"/>
-                        <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </activityIndicatorView>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="r7n-Hb-OZZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Gyk-Ke-4t1"/>
-                    <constraint firstItem="ZF3-Sh-czz" firstAttribute="centerX" secondItem="r7n-Hb-OZZ" secondAttribute="centerX" id="Ldp-31-O0H"/>
                     <constraint firstAttribute="trailing" secondItem="r7n-Hb-OZZ" secondAttribute="trailing" constant="10" id="Nlo-vn-Kcg"/>
                     <constraint firstItem="r7n-Hb-OZZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="csU-Dm-00o"/>
-                    <constraint firstItem="ZF3-Sh-czz" firstAttribute="centerY" secondItem="r7n-Hb-OZZ" secondAttribute="centerY" id="q49-gt-IqH"/>
                     <constraint firstAttribute="bottom" secondItem="r7n-Hb-OZZ" secondAttribute="bottom" constant="10" id="w3h-3g-9vs"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="activityIndicator" destination="ZF3-Sh-czz" id="VdZ-z7-qmk"/>
                 <outlet property="postBodyLable" destination="bcT-oc-lt4" id="1Tr-er-aoB"/>
                 <outlet property="postTitleLabel" destination="Rca-w7-pJ1" id="u4v-vf-z4N"/>
             </connections>

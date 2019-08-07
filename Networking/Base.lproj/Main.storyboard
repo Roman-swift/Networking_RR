@@ -22,6 +22,14 @@
                                 <rect key="frame" x="0.0" y="5" width="414" height="896"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="3Cx-Sj-KKp">
+                                <rect key="frame" x="157" y="403" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="5Xh-AR-jvx"/>
+                                    <constraint firstAttribute="width" constant="100" id="iSx-Yd-Ohu"/>
+                                </constraints>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -29,6 +37,8 @@
                             <constraint firstItem="p0g-mF-qgG" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="R3O-YC-uPw"/>
                             <constraint firstItem="p0g-mF-qgG" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="bKm-vL-i2W"/>
                             <constraint firstItem="p0g-mF-qgG" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="iJs-5e-HBJ"/>
+                            <constraint firstItem="3Cx-Sj-KKp" firstAttribute="centerY" secondItem="p0g-mF-qgG" secondAttribute="centerY" id="u87-NS-xcH"/>
+                            <constraint firstItem="3Cx-Sj-KKp" firstAttribute="centerX" secondItem="p0g-mF-qgG" secondAttribute="centerX" id="yaN-td-BPy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -40,6 +50,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="3Cx-Sj-KKp" id="cKz-XA-zrI"/>
                         <outlet property="postsTableView" destination="p0g-mF-qgG" id="NfM-Nt-8rv"/>
                     </connections>
                 </viewController>
@@ -59,12 +70,22 @@
                                 <rect key="frame" x="0.0" y="5" width="414" height="896"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="p2M-h3-9jH">
+                                <rect key="frame" x="157" y="403" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="LvW-3x-DSA"/>
+                                    <constraint firstAttribute="height" constant="100" id="chn-in-xlk"/>
+                                </constraints>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="F25-Gg-8Yc" firstAttribute="height" secondItem="Xoj-Oa-Q7F" secondAttribute="height" id="9s0-0z-CJE"/>
                             <constraint firstItem="F25-Gg-8Yc" firstAttribute="width" secondItem="Xoj-Oa-Q7F" secondAttribute="width" id="HfL-Cc-7Y4"/>
+                            <constraint firstItem="p2M-h3-9jH" firstAttribute="centerX" secondItem="F25-Gg-8Yc" secondAttribute="centerX" id="NlV-XY-8Yu"/>
                             <constraint firstItem="F25-Gg-8Yc" firstAttribute="centerX" secondItem="cIa-Mn-njT" secondAttribute="centerX" id="Ok7-JP-iCX"/>
+                            <constraint firstItem="p2M-h3-9jH" firstAttribute="centerY" secondItem="F25-Gg-8Yc" secondAttribute="centerY" id="YyB-OX-JpO"/>
                             <constraint firstItem="F25-Gg-8Yc" firstAttribute="centerY" secondItem="cIa-Mn-njT" secondAttribute="centerY" id="vgq-vT-vMh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cIa-Mn-njT"/>
@@ -78,6 +99,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="p2M-h3-9jH" id="DbL-1h-G4K"/>
                         <outlet property="commentsTableView" destination="F25-Gg-8Yc" id="Dv1-Sx-uoA"/>
                     </connections>
                 </viewController>
@@ -97,6 +119,14 @@
                                 <rect key="frame" x="0.0" y="100" width="414" height="823"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="iGf-pz-GEe">
+                                <rect key="frame" x="157" y="461.5" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="6f2-pH-acl"/>
+                                    <constraint firstAttribute="height" constant="100" id="M3p-EW-itR"/>
+                                </constraints>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bTZ-bG-WOb">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                 <subviews>
@@ -133,6 +163,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="iGf-pz-GEe" firstAttribute="centerX" secondItem="gOM-EF-Kj0" secondAttribute="centerX" id="1Nv-mf-PSZ"/>
+                            <constraint firstItem="iGf-pz-GEe" firstAttribute="centerY" secondItem="gOM-EF-Kj0" secondAttribute="centerY" id="ALZ-go-u1R"/>
                             <constraint firstItem="gOM-EF-Kj0" firstAttribute="top" secondItem="bTZ-bG-WOb" secondAttribute="bottom" id="U6j-1Y-xSn"/>
                             <constraint firstItem="bTZ-bG-WOb" firstAttribute="leading" secondItem="gOM-EF-Kj0" secondAttribute="leading" id="UfZ-AW-OJ2"/>
                             <constraint firstItem="gOM-EF-Kj0" firstAttribute="centerX" secondItem="27v-WP-dAp" secondAttribute="centerX" id="gLO-ju-a1g"/>
@@ -152,6 +184,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="iGf-pz-GEe" id="5QN-vB-zAE"/>
                         <outlet property="usersTableView" destination="gOM-EF-Kj0" id="Fdz-l3-85c"/>
                     </connections>
                 </viewController>
