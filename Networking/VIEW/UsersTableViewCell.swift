@@ -9,6 +9,7 @@
 import UIKit
 
 class UsersTableViewCell: UITableViewCell {
+    @IBOutlet weak var myView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
@@ -21,10 +22,19 @@ class UsersTableViewCell: UITableViewCell {
     @IBOutlet weak var catchPhraseLabel: UILabel!
     @IBOutlet weak var bsLabel: UILabel!
     
+    
+    
         private var user: User?
-        
+    
         func configure(_ user: User) {
             DispatchQueue.main.async {
+            self.myView.layer.cornerRadius = 15
+            self.myView.layer.masksToBounds = false
+            self.myView.layer.shadowOffset = CGSize(width: 0, height: 0)
+            self.myView.layer.shadowColor = UIColor.black.cgColor
+            self.myView.layer.shadowOpacity = 0.23
+            self.myView.layer.shadowRadius = 5
+                
             self.user = user
             self.nameLabel.text = user.name
             self.usernameLabel.text = user.username

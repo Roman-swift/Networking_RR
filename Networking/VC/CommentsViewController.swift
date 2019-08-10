@@ -20,7 +20,6 @@ class CommentsViewController: UIViewController {
     }
     
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
-
     
     private var post: Post?
     var networkManager = NetworkManager()
@@ -43,10 +42,9 @@ class CommentsViewController: UIViewController {
             }
         }
         }else {
-            self.activityIndicator.stopAnimating()
             DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
                 let alert = UIAlertController(title: "No internet connection", message: "Please, check your connection to Internet.", preferredStyle: .alert)
-                
                 self.present(alert, animated: true, completion: nil)
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {

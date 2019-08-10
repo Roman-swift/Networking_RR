@@ -35,7 +35,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.81176470588235294" green="0.82745098039215681" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Rca-w7-pJ1" firstAttribute="leading" secondItem="r7n-Hb-OZZ" secondAttribute="leading" constant="8" id="0it-F5-dYB"/>
                             <constraint firstItem="bcT-oc-lt4" firstAttribute="leading" secondItem="r7n-Hb-OZZ" secondAttribute="leading" constant="8" id="H5Y-wU-0I5"/>
@@ -58,6 +58,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="myView" destination="r7n-Hb-OZZ" id="fdD-gt-Aon"/>
                 <outlet property="postBodyLable" destination="bcT-oc-lt4" id="1Tr-er-aoB"/>
                 <outlet property="postTitleLabel" destination="Rca-w7-pJ1" id="u4v-vf-z4N"/>
             </connections>

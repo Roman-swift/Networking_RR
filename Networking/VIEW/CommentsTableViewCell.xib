@@ -41,7 +41,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.81176470588235294" green="0.82745098039215681" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="L2z-ML-WaE" firstAttribute="leading" secondItem="ddn-LJ-XKo" secondAttribute="leading" constant="10" id="0ac-2R-whT"/>
                             <constraint firstItem="eTL-Wb-7ld" firstAttribute="leading" secondItem="ddn-LJ-XKo" secondAttribute="leading" constant="10" id="26f-u3-EJ5"/>
@@ -69,6 +69,7 @@
             <connections>
                 <outlet property="bodyLabel" destination="4BN-oE-m2R" id="CMZ-Ra-hx7"/>
                 <outlet property="emailLabel" destination="eTL-Wb-7ld" id="yb9-1c-pLV"/>
+                <outlet property="myView" destination="ddn-LJ-XKo" id="kvA-5n-GXY"/>
                 <outlet property="nameLabel" destination="L2z-ML-WaE" id="NBP-Sv-Rye"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="178.125"/>

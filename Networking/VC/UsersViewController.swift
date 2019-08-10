@@ -39,16 +39,14 @@ class UsersViewController: UIViewController {
             }
         }
         } else {
-            self.activityIndicator.stopAnimating()
             DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
                 let alert = UIAlertController(title: "No internet connection", message: "Please, check your connection to Internet.", preferredStyle: .alert)
-                
                 self.present(alert, animated: true, completion: nil)
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
                     alert.dismiss(animated: true, completion: nil)
                     self.navigationController?.popViewController(animated: true)
-
                 })
             }
         }
