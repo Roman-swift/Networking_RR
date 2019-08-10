@@ -26,16 +26,30 @@ class UsersViewController: UIViewController {
     var refreshControl = UIRefreshControl()
     var user: User?
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if Connectivity.isConnectedToInternet() {
         activityIndicator.startAnimating()
         NetworkManager().getAllUsers() { users in
                 self.users = users
             DispatchQueue.main.async {
                 self.usersTableView.reloadData()
                 self.activityIndicator.stopAnimating()
+            }
+        }
+        } else {
+            self.activityIndicator.stopAnimating()
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "No internet connection", message: "Please, check your connection to Internet.", preferredStyle: .alert)
+                
+                self.present(alert, animated: true, completion: nil)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+                    alert.dismiss(animated: true, completion: nil)
+                    self.navigationController?.popViewController(animated: true)
+
+                })
             }
         }
         
@@ -144,5 +158,3 @@ extension UsersViewController: AddUserTableViewControllerDelegate {
         }
     }
 }
-
-

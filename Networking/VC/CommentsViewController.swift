@@ -29,12 +29,9 @@ class CommentsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.title = "Comments"
-        
-        refreshControl.addTarget(self, action: #selector(refresh), for:.valueChanged)
-        self.commentsTableView.addSubview(refreshControl)
-        
+    
+        if Connectivity.isConnectedToInternet() {
         activityIndicator.startAnimating()
         if let myPost = post {
             NetworkManager().getCommentsForPost(myPost.id) { (comments) in
@@ -45,6 +42,22 @@ class CommentsViewController: UIViewController {
                 }
             }
         }
+        }else {
+            self.activityIndicator.stopAnimating()
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "No internet connection", message: "Please, check your connection to Internet.", preferredStyle: .alert)
+                
+                self.present(alert, animated: true, completion: nil)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+                    alert.dismiss(animated: true, completion: nil)
+                    self.navigationController?.popViewController(animated: true)
+                })
+            }
+        }
+        
+        refreshControl.addTarget(self, action: #selector(refresh), for:.valueChanged)
+        self.commentsTableView.addSubview(refreshControl)
     }
     
     func saveNewComment (_ comment: Comment) {

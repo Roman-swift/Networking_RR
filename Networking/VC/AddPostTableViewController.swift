@@ -110,7 +110,6 @@ class AddPostTableViewController: UITableViewController {
         }
     }
     
-    
     @IBAction func didTapCancel(_ sender: UIBarButtonItem) {
 self.navigationController?.popViewController(animated: true)
         
