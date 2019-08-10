@@ -13,7 +13,6 @@
 		17DC80C622E6219600E5A73A /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DC80C522E6219600E5A73A /* PostsViewController.swift */; };
 		17DC80C922E6219600E5A73A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17DC80C722E6219600E5A73A /* Main.storyboard */; };
 		17DC80CB22E6219800E5A73A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17DC80CA22E6219800E5A73A /* Assets.xcassets */; };
-		17DC80CE22E6219800E5A73A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17DC80CC22E6219800E5A73A /* LaunchScreen.storyboard */; };
 		17DC80D622E627E900E5A73A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DC80D522E627E900E5A73A /* Post.swift */; };
 		17DC80D822E6328D00E5A73A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DC80D722E6328D00E5A73A /* NetworkManager.swift */; };
 		1C21779D22F1CF9300E32FFE /* AddUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C21779C22F1CF9300E32FFE /* AddUserTableViewController.swift */; };
@@ -22,6 +21,7 @@
 		1C4D4B0422FEFB51001F7C04 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C4D4AF722FEF98C001F7C04 /* Alamofire.framework */; };
 		1C4D4B0522FEFB51001F7C04 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1C4D4AF722FEF98C001F7C04 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1C4D4B0A22FEFC53001F7C04 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4D4B0922FEFC53001F7C04 /* Connectivity.swift */; };
+		1C4D4B1022FF72D7001F7C04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C4D4B0E22FF72D7001F7C04 /* LaunchScreen.storyboard */; };
 		1C64ACD222EEF53100052DEF /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C64ACD122EEF53100052DEF /* UsersViewController.swift */; };
 		1C64ACD522EEFB6800052DEF /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C64ACD322EEFB6800052DEF /* UsersTableViewCell.swift */; };
 		1C64ACD622EEFB6800052DEF /* UsersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C64ACD422EEFB6800052DEF /* UsersTableViewCell.xib */; };
@@ -113,7 +113,6 @@
 		17DC80C522E6219600E5A73A /* PostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
 		17DC80C822E6219600E5A73A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		17DC80CA22E6219800E5A73A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		17DC80CD22E6219800E5A73A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		17DC80CF22E6219800E5A73A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17DC80D522E627E900E5A73A /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		17DC80D722E6328D00E5A73A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -122,6 +121,7 @@
 		1C4D4A9222F6407F001F7C04 /* AddCommentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentTableViewController.swift; sourceTree = "<group>"; };
 		1C4D4AEB22FEF98B001F7C04 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		1C4D4B0922FEFC53001F7C04 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Connectivity.swift; path = VC/Connectivity.swift; sourceTree = "<group>"; };
+		1C4D4B0F22FF72D7001F7C04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1C64ACD122EEF53100052DEF /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		1C64ACD322EEFB6800052DEF /* UsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
 		1C64ACD422EEFB6800052DEF /* UsersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersTableViewCell.xib; sourceTree = "<group>"; };
@@ -183,9 +183,8 @@
 				17DC80D722E6328D00E5A73A /* NetworkManager.swift */,
 				1C4D4B0922FEFC53001F7C04 /* Connectivity.swift */,
 				17DC80C322E6219600E5A73A /* AppDelegate.swift */,
-				17DC80C722E6219600E5A73A /* Main.storyboard */,
 				17DC80CA22E6219800E5A73A /* Assets.xcassets */,
-				17DC80CC22E6219800E5A73A /* LaunchScreen.storyboard */,
+				1C4D4B0D22FF6EDF001F7C04 /* Storyboards */,
 				17DC80CF22E6219800E5A73A /* Info.plist */,
 			);
 			path = Networking;
@@ -203,6 +202,15 @@
 				1C4D4B0322FEF98C001F7C04 /* Alamofire.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		1C4D4B0D22FF6EDF001F7C04 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				17DC80C722E6219600E5A73A /* Main.storyboard */,
+				1C4D4B0E22FF72D7001F7C04 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		1C64ACCF22EEF02400052DEF /* VC */ = {
@@ -346,7 +354,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17DC80CE22E6219800E5A73A /* LaunchScreen.storyboard in Resources */,
+				1C4D4B1022FF72D7001F7C04 /* LaunchScreen.storyboard in Resources */,
 				17DC80CB22E6219800E5A73A /* Assets.xcassets in Resources */,
 				17DC80C922E6219600E5A73A /* Main.storyboard in Resources */,
 				1C64ACD622EEFB6800052DEF /* UsersTableViewCell.xib in Resources */,
@@ -399,10 +407,10 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		17DC80CC22E6219800E5A73A /* LaunchScreen.storyboard */ = {
+		1C4D4B0E22FF72D7001F7C04 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				17DC80CD22E6219800E5A73A /* Base */,
+				1C4D4B0F22FF72D7001F7C04 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
