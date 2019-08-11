@@ -68,7 +68,7 @@ class AddPostTableViewController: UITableViewController {
                             alert.dismiss(animated: true, completion: nil)
                             print(newPost.id)
                             
-                            self.navigationController?.popToRootViewController(animated: true)
+                            self.navigationController?.popViewController(animated: true)
                         })
                     }
                 }

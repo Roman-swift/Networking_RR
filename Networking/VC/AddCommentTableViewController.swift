@@ -70,7 +70,7 @@ class AddCommentTableViewController: UITableViewController {
                             alert.dismiss(animated: true, completion: nil)
                             print(newComment.id)
                             
-                            self.navigationController?.popToRootViewController(animated: true)
+                            self.navigationController?.popViewController(animated: true)
                         })
                     }
                 }
