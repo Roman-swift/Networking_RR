@@ -10,7 +10,8 @@ import UIKit
 
 class PostsViewController: UIViewController {
 
-	@IBOutlet weak var postsTableView: UITableView! {
+    @IBOutlet weak var postNavigationBar: UINavigationItem!
+    @IBOutlet weak var postsTableView: UITableView! {
 		didSet {
 			postsTableView.delegate = self
 			postsTableView.dataSource = self

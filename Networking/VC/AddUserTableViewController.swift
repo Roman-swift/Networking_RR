@@ -65,6 +65,8 @@ class AddUserTableViewController: UITableViewController {
             if (nameTextField.text == "" || usernameTextField.text == "") || (phoneTextField.text == "" || emailTExtField.text == "") {
                 DispatchQueue.main.async {
                     let alert = UIAlertController(title: "Empty fields", message: "Required fields are marked *", preferredStyle: .alert)
+                    let subview = (alert.view.subviews.first?.subviews.first?.subviews.first!)! as UIView
+                    subview.backgroundColor = UIColor(red: 216/255.0, green: 198/255.0, blue: 249/255.0, alpha: 1.0)
                     
                     self.present(alert, animated: true, completion: nil)
                     
@@ -79,6 +81,8 @@ class AddUserTableViewController: UITableViewController {
                     
                     DispatchQueue.main.async {
                         let alert = UIAlertController(title: "User creation", message: "Your user is creating...", preferredStyle: .alert)
+                        let subview = (alert.view.subviews.first?.subviews.first?.subviews.first!)! as UIView
+                        subview.backgroundColor = UIColor(red: 216/255.0, green: 198/255.0, blue: 249/255.0, alpha: 1.0)
                         
                         self.present(alert, animated: true, completion: nil)
                         
@@ -105,6 +109,8 @@ class AddUserTableViewController: UITableViewController {
                         self.delegate?.createOrUpdateUser(updateUser)
 
                         let alert = UIAlertController(title: "User updation", message: "Your user is updating...", preferredStyle: .alert)
+                        let subview = (alert.view.subviews.first?.subviews.first?.subviews.first!)! as UIView
+                        subview.backgroundColor = UIColor(red: 216/255.0, green: 198/255.0, blue: 249/255.0, alpha: 1.0)
                         
                         self.present(alert, animated: true, completion: nil)
                         

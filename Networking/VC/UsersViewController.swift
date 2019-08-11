@@ -29,6 +29,8 @@ class UsersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.barTintColor = UIColor.init(red: 216/255.0, green: 198/255.0, blue: 249/255.0, alpha: 1.0)
+        
         if Connectivity.isConnectedToInternet() {
         activityIndicator.startAnimating()
         NetworkManager().getAllUsers() { users in

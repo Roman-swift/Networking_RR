@@ -48,7 +48,9 @@ class AddCommentTableViewController: UITableViewController {
             
             if nameTextField.text == "" || bodyTextField.text == "" {
                 DispatchQueue.main.async {
-                    let alert = UIAlertController(title: "Empty fields", message: "Required fields are marked *", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Empty fields", message: "All fields are requireds", preferredStyle: .alert)
+                    let subview = (alert.view.subviews.first?.subviews.first?.subviews.first!)! as UIView
+                    subview.backgroundColor = UIColor(red: 216/255.0, green: 198/255.0, blue: 249/255.0, alpha: 1.0)
                     
                     self.present(alert, animated: true, completion: nil)
                     
@@ -63,6 +65,8 @@ class AddCommentTableViewController: UITableViewController {
                     
                     DispatchQueue.main.async {
                         let alert = UIAlertController(title: "Comment creation", message: "Your comment is creating...", preferredStyle: .alert)
+                        let subview = (alert.view.subviews.first?.subviews.first?.subviews.first!)! as UIView
+                        subview.backgroundColor = UIColor(red: 216/255.0, green: 198/255.0, blue: 249/255.0, alpha: 1.0)
                         
                         self.present(alert, animated: true, completion: nil)
                         
@@ -90,6 +94,8 @@ class AddCommentTableViewController: UITableViewController {
                         self.delegate?.createOrUpdateComment(updatedComment)
                         
                         let alert = UIAlertController(title: "Comment updation", message: "Your comment is updating...", preferredStyle: .alert)
+                        let subview = (alert.view.subviews.first?.subviews.first?.subviews.first!)! as UIView
+                        subview.backgroundColor = UIColor(red: 216/255.0, green: 198/255.0, blue: 249/255.0, alpha: 1.0)
                         
                         self.present(alert, animated: true, completion: nil)
                         

@@ -46,10 +46,12 @@ class AddPostTableViewController: UITableViewController {
             
             if titleTextField.text == "" || bodyTextField.text == "" {
                 DispatchQueue.main.async {
-                    let alert = UIAlertController(title: "Empty fields", message: "Required fields are marked *", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Empty fields", message: "All fields are requireds", preferredStyle: .alert)
+                    let subview = (alert.view.subviews.first?.subviews.first?.subviews.first!)! as UIView
+                    subview.backgroundColor = UIColor(red: 216/255.0, green: 198/255.0, blue: 249/255.0, alpha: 1.0)
                     
                     self.present(alert, animated: true, completion: nil)
-                    
+                   
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
                         alert.dismiss(animated: true, completion: nil)
                     })
@@ -61,6 +63,8 @@ class AddPostTableViewController: UITableViewController {
                     
                     DispatchQueue.main.async {
                         let alert = UIAlertController(title: "Post creation", message: "Your post is creating...", preferredStyle: .alert)
+                        let subview = (alert.view.subviews.first?.subviews.first?.subviews.first!)! as UIView
+                        subview.backgroundColor = UIColor(red: 216/255.0, green: 198/255.0, blue: 249/255.0, alpha: 1.0)
                         
                         self.present(alert, animated: true, completion: nil)
                         
@@ -87,6 +91,8 @@ class AddPostTableViewController: UITableViewController {
                         self.delegate?.createOrUpdatePost(updatedPost)
                         
                         let alert = UIAlertController(title: "Post updation", message: "Your post is updating...", preferredStyle: .alert)
+                        let subview = (alert.view.subviews.first?.subviews.first?.subviews.first!)! as UIView
+                        subview.backgroundColor = UIColor(red: 216/255.0, green: 198/255.0, blue: 249/255.0, alpha: 1.0)
                         
                         self.present(alert, animated: true, completion: nil)
                         
